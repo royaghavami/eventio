@@ -1,27 +1,26 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { defineProps, ref } from "vue";
 
-defineOptions({ name: 'OImage' })
+defineOptions({ name: "OImage" });
 
 const props = defineProps<{
-  src: string
-  alt?: string
-  width?: string | number
-  height?: string | number
-  class?: string
-  fallbackSrc?: string
-}>()
+  src: string;
+  alt?: string;
+  width?: string | number;
+  height?: string | number;
+  class?: string;
+  fallbackSrc?: string;
+}>();
 
-
-const imgSrc = ref(props.src)
+const imgSrc = ref(props.src);
 
 const onError = () => {
   if (props.fallbackSrc) {
-    imgSrc.value = props.fallbackSrc
+    imgSrc.value = props.fallbackSrc;
   } else {
-    imgSrc.value = ''
+    imgSrc.value = "";
   }
-}
+};
 </script>
 
 <template>

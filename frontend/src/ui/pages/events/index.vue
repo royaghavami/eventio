@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { useQuery } from '@tanstack/vue-query'
-import { eventApi } from '@/infrastructure/http/event.api'
-import { useRouter } from 'vue-router'
-import { getImageUrl } from '@/utils/helper'
-import OCard from '@/components/base/card.vue'
+import { useQuery } from "@tanstack/vue-query";
+import { eventApi } from "@/infrastructure/http/event.api";
+import { useRouter } from "vue-router";
+import { getImageUrl } from "@/utils/helper";
+import OCard from "@/components/base/card.vue";
 
-
-defineOptions({ name: 'Events' })
+defineOptions({ name: "Events" });
 
 const { data: eventListings, isLoading } = useQuery({
-  queryKey: ['event-listing'],
+  queryKey: ["event-listing"],
   queryFn: () => eventApi.getAll(),
-})
+});
 
-const router = useRouter()
+const router = useRouter();
 
 const onCardClick = (eventId: string) => {
-  router.push(`/events/${eventId}`)
-}
+  router.push(`/events/${eventId}`);
+};
 </script>
 
 <template>

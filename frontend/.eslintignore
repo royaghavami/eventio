@@ -1,0 +1,7 @@
+.idea
+.code
+/**/auto-imports.d.ts
+/**/components.d.ts
+node_modules
+pnpm-lock.yaml
+pnpm-workspace.yaml

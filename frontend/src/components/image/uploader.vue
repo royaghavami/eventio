@@ -1,47 +1,42 @@
 <script setup lang="ts">
-import { ref, watch, defineProps, defineEmits } from 'vue'
-import OImage from '@/components/base/image.vue'
+import { ref, watch, defineProps, defineEmits } from "vue";
+import OImage from "@/components/base/image.vue";
 
-defineOptions({ name: 'OImageUploader' })
+defineOptions({ name: "OImageUploader" });
 
-
-defineProps<{ files?: File[] }>()
-
+defineProps<{ files?: File[] }>();
 
 const emit = defineEmits<{
-  (event: 'update:files', files: File[]): void
-}>()
+  (event: "update:files", files: File[]): void;
+}>();
 
-
-const selectedFiles = ref<File[]>([])
-
+const selectedFiles = ref<File[]>([]);
 
 watch(selectedFiles, (newFiles) => {
-  emit('update:files', newFiles)
-})
+  emit("update:files", newFiles);
+});
 
-const fileInput = ref<HTMLInputElement | null>(null)
-
+const fileInput = ref<HTMLInputElement | null>(null);
 
 const onFilesSelected = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  if (!target.files) return
+  const target = event.target as HTMLInputElement;
+  if (!target.files) return;
 
-  const filesArray: File[] = Array.from(target.files)
-  selectedFiles.value = filesArray.slice(0, 3)
-}
+  const filesArray: File[] = Array.from(target.files);
+  selectedFiles.value = filesArray.slice(0, 3);
+};
 
 const removeFile = (index: number) => {
-  selectedFiles.value = selectedFiles.value.filter((_, i) => i !== index)
-}
+  selectedFiles.value = selectedFiles.value.filter((_, i) => i !== index);
+};
 
 const fileUrl = (file: File): string => {
-  return (window as any).URL.createObjectURL(file)
-}
+  return (window as any).URL.createObjectURL(file);
+};
 
 const openFileDialog = () => {
-  fileInput.value?.click()
-}
+  fileInput.value?.click();
+};
 </script>
 
 <template>

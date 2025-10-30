@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppLayout from '@/ui/layouts/blank.vue'
+import AppLayout from "@/ui/layouts/blank.vue";
 </script>
 
 <template>

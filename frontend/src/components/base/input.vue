@@ -1,14 +1,14 @@
 <script setup lang="ts">
-defineOptions({ name: 'OInput' })
+defineOptions({ name: "OInput" });
 
 defineProps<{
-  id?: string
-  label?: string
-  type?: string
-  error?: string
-}>()
+  id?: string;
+  label?: string;
+  type?: string;
+  error?: string;
+}>();
 
-const model = defineModel<string | number>()
+const model = defineModel<string | number>();
 </script>
 
 <template>

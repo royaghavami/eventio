@@ -1,14 +1,14 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'OButton',
-})
+  name: "OButton",
+});
 
 const props = defineProps<{
-  type?: 'button' | 'submit' | 'reset'
-  disabled?: boolean
-}>()
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+}>();
 
-const { type = 'button', disabled = false } = props
+const { type = "button", disabled = false } = props;
 </script>
 
 <template>

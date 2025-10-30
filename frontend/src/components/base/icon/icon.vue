@@ -11,30 +11,30 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
-import type { Icon } from './icon'
+import { defineProps, ref } from 'vue';
+import type { Icon } from './icon';
 
 const props = defineProps<{
-  name: Icon
-  width?: string | number
-  height?: string | number
-  class?: string
-  fallbackSrc?: string
-}>()
+  name: Icon;
+  width?: string | number;
+  height?: string | number;
+  class?: string;
+  fallbackSrc?: string;
+}>();
 
 // Current src to render
-const iconSrc = ref(getIconPath(props.name))
+const iconSrc = ref(getIconPath(props.name));
 
 function getIconPath(name: Icon): string {
   // assumes icons are in src/components/icons/
-  return `/src/components/icons/${name}.svg`
+  return `/src/components/icons/${name}.svg`;
 }
 
 function onError() {
   if (props.fallbackSrc) {
-    iconSrc.value = props.fallbackSrc
+    iconSrc.value = props.fallbackSrc;
   } else {
-    iconSrc.value = ''
+    iconSrc.value = '';
   }
 }
 </script>

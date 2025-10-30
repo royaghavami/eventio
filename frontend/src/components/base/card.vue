@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import OImage from '@/components/base/image.vue'
+import OImage from "@/components/base/image.vue";
 
 const props = defineProps<{
-  title: string
-  subtitle?: string
-  extra?: string
-  clickable?: boolean
-  imageSrc?: string
-  imageAlt?: string
-  imageFallback?: string
-}>()
+  title: string;
+  subtitle?: string;
+  extra?: string;
+  clickable?: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageFallback?: string;
+}>();
 
 const emit = defineEmits<{
-  (event: 'click'): void
-}>()
+  (event: "click"): void;
+}>();
 
 const handleClick = () => {
-  if (props.clickable) emit('click')
-}
+  if (props.clickable) emit("click");
+};
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const handleClick = () => {
     @click="handleClick"
     :class="[
       'border rounded-lg p-4 shadow hover:shadow-lg hover:border-blue-500 hover:text-blue-500 transition cursor-pointer',
-      !clickable && 'cursor-default hover:shadow-none'
+      !clickable && 'cursor-default hover:shadow-none',
     ]"
   >
     <OImage
