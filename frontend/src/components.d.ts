@@ -17,5 +17,7 @@ declare module 'vue' {
     Input: typeof import('./components/base/input.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Transition: typeof import('./ui/components/transition/index.vue')['default']
+    Wizard: typeof import('./ui/components/wizard/index.vue')['default']
   }
 }
