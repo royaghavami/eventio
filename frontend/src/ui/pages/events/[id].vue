@@ -37,13 +37,16 @@ const handleDelete = () => {
 </script>
 
 <template>
-  <div class="flex flex-col min-h-[calc(100vh-10rem)]">
+  <main class="py-24 px-12">
     <div v-if="isLoading" class="flex-1 flex items-center justify-center">
       Loading...
     </div>
 
     <div v-else-if="eventDetail" class="flex flex-1">
-      <h1 class="flex-1 text-2xl font-bold mb-2">{{ eventDetail.title }}</h1>
+      <div class="flex-1">
+        <h1 class="text-4xl font-bold mb-2">{{ eventDetail.title }}</h1>
+        <p class="text-2xl">{{ eventDetail.description }}</p>
+      </div>
       <div class="">
         <OImage
           :src="getImageUrl(eventDetail.images?.[0]?.url || '')"
@@ -52,7 +55,7 @@ const handleDelete = () => {
           class="rounded shadow"
           fallback-src="/images/placeholder.svg"
         />
-        <div>
+        <div class="flex mt-4 gap-2">
           <OImage
             v-for="image in eventDetail.images"
             :key="image.id"
@@ -65,6 +68,6 @@ const handleDelete = () => {
         </div>
       </div>
     </div>
-    <OButton class="mt-auto w-full" @click="handleDelete"> Delete </OButton>
-  </div>
+    <OButton class="mt-auto bottom-0 w-full" @click="handleDelete"> حذف </OButton>
+  </main>
 </template>

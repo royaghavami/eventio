@@ -1,1 +1,80 @@
 @import 'tailwindcss';
+
+@layer base {
+    @font-face {
+        font-family: 'Vazirmatn';
+        font-display: swap;
+        font-style: normal;
+        font-weight: 100 900;
+        src:
+            url('/fonts/vazirmatn.woff2') format('woff2 supports variations'),
+            url('/fonts/vazirmatn.woff2') format('woff2-variations'),
+            url('/fonts/vazirmatn.ttf') format('truetype');
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    *:before,
+    &:after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    html::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    body {
+        color: #1c1d1f;
+        direction: rtl;
+        font-family: 'Vazirmatn', system-ui, sans-serif;
+        font-feature-settings: 'ss01';
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    div,
+    span {
+        user-select: none;
+    }
+
+    button:active,
+    button:focus,
+    input:active,
+    input:focus,
+    select:active,
+    select:focus,
+    textarea:active,
+    textarea:focus {
+        outline: none;
+    }
+
+    button::-moz-focus-inner,
+    input::-moz-focus-inner,
+    select::-moz-focus-inner,
+    textarea::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    button,
+    [role='button'] {
+        outline: none;
+    }
+}

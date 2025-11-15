@@ -44,28 +44,28 @@ const { mutate, isPending } = useMutation({
 </script>
 
 <template>
-  <div class="relative min-h-[calc(100vh-10rem)]">
+  <main class="py-24 px-12">
     <form @submit.prevent="mutate()" class="pb-20 space-y-4">
-      <OInput v-model="formData.title" label="Title" />
-      <OInput v-model="formData.description" label="Description" />
+      <OInput v-model="formData.title" label="نام ایونت" />
+      <OInput v-model="formData.description" label="توضیحات" />
       <OInput
         v-model="formData.startDate"
         type="datetime-local"
-        label="Start Date"
+        label="تاریخ شروع"
       />
       <OInput
         v-model="formData.endDate"
         type="datetime-local"
-        label="End Date"
+        label="تاریخ پایان"
       />
-      <OInput v-model="formData.address" label="Address" />
-      <OInput v-model="formData.capacity" type="number" label="Capacity" />
+      <OInput v-model="formData.address" label="محل برگزاری" />
+      <OInput v-model="formData.capacity" type="number" label="ظرفیت" />
 
       <OImageUploader v-model:files="formData.images" />
 
       <OButton type="submit" class="w-full" :disabled="isPending">
-        Add Event
+        ایجاد کردن
       </OButton>
     </form>
-  </div>
+  </main>
 </template>

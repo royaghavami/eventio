@@ -22,12 +22,10 @@ const props = defineProps<{
   fallbackSrc?: string;
 }>();
 
-// Current src to render
 const iconSrc = ref(getIconPath(props.name));
 
 function getIconPath(name: Icon): string {
-  // assumes icons are in src/components/icons/
-  return `/src/components/icons/${name}.svg`;
+  return `/src/components/base/icon/svgs/${name}.svg`;
 }
 
 function onError() {

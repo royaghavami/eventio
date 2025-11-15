@@ -3,8 +3,8 @@ import OImage from "@/components/base/image.vue";
 
 const props = defineProps<{
   title: string;
-  subtitle?: string;
-  extra?: string;
+  capacity?: string;
+  description?: string;
   clickable?: boolean;
   imageSrc?: string;
   imageAlt?: string;
@@ -24,20 +24,25 @@ const handleClick = () => {
   <div
     @click="handleClick"
     :class="[
-      'border rounded-lg p-4 shadow hover:shadow-lg hover:border-blue-500 hover:text-blue-500 transition cursor-pointer',
+      'border rounded-lg p-4 shadow hover:shadow-lg hover:border-indigo-700 hover:text-indigo-700 transition cursor-pointer group',
       !clickable && 'cursor-default hover:shadow-none',
     ]"
   >
-    <OImage
-      v-if="imageSrc"
-      :src="imageSrc"
-      :alt="imageAlt || title"
-      :fallback-src="imageFallback || '/images/placeholder.svg'"
-      class="w-full h-40 object-cover rounded mb-4"
-    />
-
-    <h2 class="font-semibold text-lg">{{ title }}</h2>
-    <p v-if="subtitle" class="text-gray-500">{{ subtitle }}</p>
-    <div v-if="extra" class="mt-2 text-right text-sm">{{ extra }}</div>
+    <div class="relative w-full h-50 mb-4 rounded overflow-hidden" v-if="imageSrc">
+      <OImage
+        :src="imageSrc"
+        :alt="imageAlt || title"
+        :fallback-src="imageFallback || '/images/placeholder.svg'"
+        class="w-full h-full object-cover block"
+      />
+      <div
+        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity"
+      ></div>
+    </div>
+    <div class="flex justify-between">
+      <h2 class="font-semibold text-lg">{{ title }}</h2>
+      <p v-if="capacity" class="text-gray-500 text-sm">ظرفیت {{ capacity }}</p>
+    </div>
+    <div v-if="description" class="mt-2 text-right text-sm line-clamp-3">{{ description }}</div>
   </div>
 </template>
