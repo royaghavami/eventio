@@ -38,8 +38,8 @@ watch(
     <Transition
       :enter-from-class="animation.enter"
       :leave-to-class="animation.leave"
-      enter-active-class="transform-gpu transition-[transform,opacity] duration-400"
-      leave-active-class="transform-gpu transition-[transform,opacity] duration-400"
+      enter-active-class="transform-gpu transition-[transform,opacity] duration-100"
+      leave-active-class="transform-gpu transition-[transform,opacity] duration-100"
     >
       <slot />
     </Transition>
