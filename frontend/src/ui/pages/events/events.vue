@@ -12,7 +12,7 @@ defineProps<{
 
 const router = useRouter();
 
-const onCardClick = (eventId: string) => {
+const onCardClick = (eventId: number) => {
   router.push(`/events/${eventId}`);
 };
 </script>

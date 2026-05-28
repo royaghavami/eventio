@@ -1,0 +1,20 @@
+export enum UserRole {
+  ATTENDEE = 'ATTENDEE',
+  ORGANIZER = 'ORGANIZER',
+  ADMIN = 'ADMIN',
+}
+
+export enum EventStatus {
+  DRAFT = 'DRAFT',
+  PENDING_REVIEW = 'PENDING_REVIEW',
+  PUBLISHED = 'PUBLISHED',
+  REJECTED = 'REJECTED',
+  CANCELLED = 'CANCELLED',
+}
+
+export enum ReservationStatus {
+  PENDING = 'PENDING',
+  APPROVED = 'APPROVED',
+  WAITLISTED = 'WAITLISTED',
+  CANCELLED = 'CANCELLED',
+}

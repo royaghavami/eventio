@@ -3,6 +3,7 @@ import { reactive, ref } from "vue";
 import { useMutation, useQueryClient } from "@tanstack/vue-query";
 import { eventApi } from "@/infrastructure/http/event.api";
 import { useRouter } from "vue-router";
+import { useRequireOrganizer } from "@/composables/auth/useRequireOrganizer";
 
 import Wizard from "@/ui/components/wizard/index.vue";
 import type { WizardStep } from "@/ui/components/wizard/index";
@@ -18,6 +19,8 @@ import Final from "@/ui/pages/events/create/steps/final.vue";
 
 defineOptions({ name: "CreateEvent" });
 
+useRequireOrganizer();
+
 const router = useRouter();
 const queryClient = useQueryClient();
 
@@ -26,6 +29,7 @@ const formData = reactive({
   description: "",
   startDate: "",
   endDate: "",
+  city: "تهران",
   address: "",
   capacity: 0,
   categories: [] as string[],
@@ -61,34 +65,44 @@ const { mutate, isPending } = useMutation({
       {
         title: formData.title,
         description: formData.description,
-        startDate: new Date(formData.startDate),
-        endDate: new Date(formData.endDate),
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        city: formData.city,
         address: formData.address,
         capacity: formData.capacity,
-        // categories: formData.categories,
-        // sessions: formData.sessions,
-        // images: formData.images.filter((f): f is File => f !== null),
       },
-      formData.images.filter((f): f is File => f !== null)
+      formData.images.filter((f): f is File => f !== null),
     ),
   onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: ["events"] });
+    queryClient.invalidateQueries({ queryKey: ["event-listing"] });
     router.push("/events");
   },
 });
 
-const nextStep = () => { if (currentStep.value < totalSteps - 1) currentStep.value++; };
-const prevStep = () => { if (currentStep.value > 0) currentStep.value--; };
+const nextStep = () => {
+  if (currentStep.value < totalSteps - 1) currentStep.value++;
+};
+const prevStep = () => {
+  if (currentStep.value > 0) currentStep.value--;
+};
 
-const addSession = () => formData.sessions.push({ time: "", title: "", description: "" });
+const addSession = () =>
+  formData.sessions.push({ time: "", title: "", description: "" });
 const removeSession = (index: number) => formData.sessions.splice(index, 1);
-
 
 const wizardSteps = computed<WizardStep<number>[]>(() => [
   { key: 0, component: Welcome, props: { nextStep } },
-  { key: 1, component: Categories, props: { formData, categories, toggleArray, nextStep, prevStep } },
+  {
+    key: 1,
+    component: Categories,
+    props: { formData, categories, toggleArray, nextStep, prevStep },
+  },
   { key: 2, component: GeneralInfo, props: { formData, nextStep, prevStep } },
-  { key: 3, component: Sessions, props: { formData, addSession, removeSession, nextStep, prevStep } },
+  {
+    key: 3,
+    component: Sessions,
+    props: { formData, addSession, removeSession, nextStep, prevStep },
+  },
   { key: 4, component: Tools, props: { formData, toolsList, nextStep, prevStep } },
   { key: 5, component: Images, props: { formData, nextStep, prevStep } },
   { key: 6, component: Rules, props: { formData, rulesList, nextStep, prevStep } },
@@ -97,11 +111,18 @@ const wizardSteps = computed<WizardStep<number>[]>(() => [
 ]);
 </script>
 
+<route lang="yaml">
+meta:
+  requiresOrganizer: true
+</route>
+
 <template>
   <main class="flex flex-col py-24 px-6 max-w-3xl mx-auto space-y-6">
-    <!-- Progress Bar -->
     <div class="w-full h-2 bg-gray-200 rounded-full">
-      <div class="h-2 bg-indigo-700 rounded-full transition-all" :style="{ width: ((currentStep+1)/totalSteps*100)+'%' }"></div>
+      <div
+        class="h-2 bg-indigo-700 rounded-full transition-all"
+        :style="{ width: (currentStep + 1) / totalSteps * 100 + '%' }"
+      ></div>
     </div>
     <Wizard :active-step="currentStep" :steps="wizardSteps" />
   </main>

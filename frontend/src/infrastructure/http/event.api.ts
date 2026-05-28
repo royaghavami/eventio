@@ -1,15 +1,20 @@
 import { httpClient } from "./httpClient";
-import type { Event } from "@/entity/event/event";
+import type { DiscoverEventsParams, Event } from "@/entity/event/event";
 import type { EventRepository } from "@/entity/event/event.repo";
 
 export const eventApi: EventRepository = {
-  async getAll() {
-    const { data } = await httpClient.get<Event[]>("/events");
+  async getAll(params?: DiscoverEventsParams) {
+    const { data } = await httpClient.get<Event[]>("/events", { params });
     return data;
   },
 
   async getById(id: number) {
     const { data } = await httpClient.get<Event>(`/events/${id}`);
+    return data;
+  },
+
+  async getMine() {
+    const { data } = await httpClient.get<Event[]>("/events/mine");
     return data;
   },
 
@@ -27,7 +32,7 @@ export const eventApi: EventRepository = {
     return data;
   },
 
-  async update(id: number, event: Event) {
+  async update(id: number, event: Partial<Event>) {
     const { data } = await httpClient.put<Event>(`/events/${id}`, event);
     return data;
   },
