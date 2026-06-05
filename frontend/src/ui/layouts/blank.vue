@@ -4,12 +4,10 @@ import Footer from '@/ui/layouts/components/footer.vue';
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen bg-gray-50">
+  <div class="flex flex-col min-h-screen">
     <Header position="fixed" />
-    <main class="flex-1">
-      <div class="mx-auto">
-        <router-view />
-      </div>
+    <main class="flex-1 w-full">
+      <router-view />
     </main>
     <Footer />
   </div>

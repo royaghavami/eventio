@@ -1,6 +1,15 @@
-import { Body, Controller, Get, Param, Patch, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { OrganizersService } from './organizers.service';
 import { UpdateOrganizerDto } from './dto/update-organizer.dto';
+import { BecomeOrganizerDto } from './dto/become-organizer.dto';
 import { JwtAuthGuard } from '@/common/guards/jwt-auth.guard';
 import { RolesGuard } from '@/common/guards/roles.guard';
 import { Roles } from '@/common/decorators/roles.decorator';
@@ -11,6 +20,29 @@ import { JwtPayload } from '@/auth/jwt-payload.interface';
 @Controller('organizers')
 export class OrganizersController {
   constructor(private readonly organizersService: OrganizersService) {}
+
+  @Post('become')
+  @UseGuards(JwtAuthGuard)
+  async become(
+    @CurrentUser() user: JwtPayload,
+    @Body() dto: BecomeOrganizerDto,
+  ) {
+    const result = await this.organizersService.becomeOrganizer(
+      user.sub,
+      dto.name,
+    );
+    return {
+      id: result.user!.id,
+      email: result.user!.email,
+      role: result.user!.role,
+      organizer: {
+        id: result.profile.id,
+        name: result.profile.name,
+        avatarUrl: result.profile.avatarUrl,
+        city: result.profile.city,
+      },
+    };
+  }
 
   @Get('me/profile')
   @UseGuards(JwtAuthGuard, RolesGuard)

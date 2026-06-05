@@ -22,7 +22,7 @@ const model = defineModel<string | number>();
       v-bind="$attrs"
       :type="type || 'text'"
       v-model="model"
-      class="border border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-lg px-3 py-2 outline-none transition text-gray-900 placeholder-gray-400"
+      class="border border-violet-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 rounded-xl px-3 py-2.5 outline-none transition text-[var(--color-ink)] placeholder-[var(--color-muted)] bg-white/80"
     />
 
     <p v-if="error" class="text-sm text-red-500">{{ error }}</p>

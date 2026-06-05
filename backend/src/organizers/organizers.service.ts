@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { UserRole } from '@/common/enums';
+import { UserService } from '@/user/user.service';
 import { OrganizerProfile } from './organizer-profile.entity';
 import { UpdateOrganizerDto } from './dto/update-organizer.dto';
 
@@ -9,11 +11,36 @@ export class OrganizersService {
   constructor(
     @InjectRepository(OrganizerProfile)
     private readonly profileRepo: Repository<OrganizerProfile>,
+    private readonly userService: UserService,
   ) {}
 
   createProfile(userId: number, name: string) {
     const profile = this.profileRepo.create({ userId, name });
     return this.profileRepo.save(profile);
+  }
+
+  async becomeOrganizer(userId: number, name: string) {
+    const user = await this.userService.findById(userId);
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (user.organizer) {
+      return { profile: user.organizer, user };
+    }
+
+    const profile = await this.createProfile(userId, name);
+
+    if (user.role === UserRole.ATTENDEE) {
+      const updated = await this.userService.updateRole(
+        userId,
+        UserRole.ORGANIZER,
+      );
+      return { profile, user: updated! };
+    }
+
+    const refreshed = await this.userService.findById(userId);
+    return { profile, user: refreshed! };
   }
 
   async findPublic(id: number) {
