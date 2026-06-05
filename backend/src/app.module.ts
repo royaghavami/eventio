@@ -15,6 +15,7 @@ import { EventModule } from '@/event/event.module';
 import { ReservationsModule } from '@/reservations/reservations.module';
 import { AdminModule } from '@/admin/admin.module';
 import { CategoryModule } from '@/category/category.module';
+import { HealthModule } from '@/health/health.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { CategoryModule } from '@/category/category.module';
     EventModule,
     ReservationsModule,
     AdminModule,
+    HealthModule,
   ],
 })
 export class AppModule {}
