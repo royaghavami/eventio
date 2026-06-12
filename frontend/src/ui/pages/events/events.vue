@@ -12,26 +12,58 @@ defineOptions({ name: 'EventsTemplate' });
 const props = defineProps<{
   events: Event[];
   categories?: { id: number; slug: string; name: string }[];
+  selectedCategoryId?: number | null;
+}>();
+
+const emit = defineEmits<{
+  selectCategory: [categoryId: number | null];
 }>();
 
 const router = useRouter();
 const { goToStart } = useBecomeOrganizer();
 
+const CATEGORY_EMOJI: Record<string, string> = {
+  art: '🎨',
+  food: '🍳',
+  health: '🏃',
+  culture: '🖼',
+  celebration: '🎉',
+  nature: '🌿',
+};
+
 const defaultCategories = [
-  { emoji: '🎨', name: 'هنر و خلاقیت' },
-  { emoji: '🍳', name: 'غذا و آشپزی' },
-  { emoji: '🏃', name: 'سلامت و فعالیت' },
-  { emoji: '🖼', name: 'فرهنگ و گالری' },
-  { emoji: '🎉', name: 'جشن و مناسبت' },
-  { emoji: '🌿', name: 'طبیعت و سفر' },
+  { emoji: '🎨', name: 'هنر و خلاقیت', slug: 'art' },
+  { emoji: '🍳', name: 'غذا و آشپزی', slug: 'food' },
+  { emoji: '🏃', name: 'سلامت و فعالیت', slug: 'health' },
+  { emoji: '🖼', name: 'فرهنگ و گالری', slug: 'culture' },
+  { emoji: '🎉', name: 'جشن و مناسبت', slug: 'celebration' },
+  { emoji: '🌿', name: 'طبیعت و سفر', slug: 'nature' },
 ];
 
 const displayCategories = computed(() => {
   if (props.categories?.length) {
-    return props.categories.map((c) => ({ emoji: '✦', name: c.name, id: c.id }));
+    return props.categories.map((c) => ({
+      emoji: CATEGORY_EMOJI[c.slug] ?? '✦',
+      name: c.name,
+      id: c.id,
+    }));
   }
   return defaultCategories.map((c) => ({ ...c, id: null as number | null }));
 });
+
+const onCategoryClick = (categoryId: number | null) => {
+  if (categoryId == null) return;
+  const next =
+    props.selectedCategoryId === categoryId ? null : categoryId;
+  emit('selectCategory', next);
+  if (next !== null) {
+    nextTick(() => scrollToEvents());
+  }
+};
+
+const clearCategory = () => {
+  emit('selectCategory', null);
+};
 
 const onCardClick = (eventId: number) => {
   router.push(`/events/${eventId}`);
@@ -97,10 +129,31 @@ const scrollToEvents = () => {
 
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
       <button
+        type="button"
+        :class="[
+          'group glass rounded-2xl p-4 text-center border transition-all duration-200 hover:-translate-y-0.5',
+          selectedCategoryId == null
+            ? 'border-violet-400 bg-violet-50 shadow-md shadow-violet-100/50'
+            : 'border-violet-100/80 hover:border-violet-300 hover:shadow-md hover:shadow-violet-100/50',
+        ]"
+        @click="clearCategory"
+      >
+        <span class="text-2xl block mb-2">✨</span>
+        <span class="text-sm font-medium text-[var(--color-ink)]">همه</span>
+      </button>
+      <button
         v-for="(cat, i) in displayCategories"
         :key="cat.id ?? i"
         type="button"
-        class="group glass rounded-2xl p-4 text-center border border-violet-100/80 hover:border-violet-300 hover:shadow-md hover:shadow-violet-100/50 transition-all duration-200 hover:-translate-y-0.5"
+        :disabled="cat.id == null"
+        :class="[
+          'group glass rounded-2xl p-4 text-center border transition-all duration-200 hover:-translate-y-0.5',
+          selectedCategoryId === cat.id
+            ? 'border-violet-400 bg-violet-50 shadow-md shadow-violet-100/50'
+            : 'border-violet-100/80 hover:border-violet-300 hover:shadow-md hover:shadow-violet-100/50',
+          cat.id == null ? 'opacity-50 cursor-not-allowed' : '',
+        ]"
+        @click="onCategoryClick(cat.id)"
       >
         <span class="text-2xl block mb-2 group-hover:scale-110 transition-transform">
           {{ cat.emoji }}
@@ -123,7 +176,13 @@ const scrollToEvents = () => {
       class="glass rounded-3xl p-12 text-center border border-dashed border-violet-200"
     >
       <span class="text-5xl">✨</span>
-      <p class="mt-4 text-[var(--color-muted)]">هنوز ایونتی اینجا نیست — تو اولین پیش پیش رو بذار</p>
+      <p class="mt-4 text-[var(--color-muted)]">
+        {{
+          selectedCategoryId
+            ? 'این دسته هنوز ایونتی نداره — یه چیز دیگه امتحان کن'
+            : 'هنوز ایونتی اینجا نیست — تو اولین پیش پیش رو بذار'
+        }}
+      </p>
       <OButton variant="gradient" class="mt-6" @click="goToStart">
         ایونت بذار
       </OButton>

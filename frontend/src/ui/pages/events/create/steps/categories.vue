@@ -4,10 +4,9 @@ import OButton from "@/components/base/button.vue";
 defineOptions({ name: "CategoriesStep" });
 
 const props = defineProps<{
-   //TODO: fix type 
-  formData: any;
-  categories: { name: string; icon: string }[];
-  toggleArray: (arr: string[], v: string) => void;
+  formData: { categoryId: number | null };
+  categories: { id: number; name: string; icon: string }[];
+  selectCategory: (categoryId: number) => void;
   nextStep: () => void;
   prevStep: () => void;
 }>();
@@ -17,15 +16,22 @@ const props = defineProps<{
   <div class="space-y-6 mt-18">
     <h2 class="text-xl font-semibold">دسته‌بندی ایونت</h2>
 
-    <div class="flex flex-wrap gap-3">
+    <div v-if="!props.categories.length" class="text-sm text-[var(--color-muted)]">
+      در حال بارگذاری دسته‌ها…
+    </div>
+
+    <div v-else class="flex flex-wrap gap-3">
       <button
-        v-for="cat in props.categories" :key="cat.name"
+        v-for="cat in props.categories"
+        :key="cat.id"
         type="button"
-        @click="props.toggleArray(props.formData.categories, cat.name)"
-        :class="['px-4 py-2 rounded border flex items-center gap-2',
-                 props.formData.categories.includes(cat.name)
-                 ? 'bg-indigo-400 text-white'
-                 : 'bg-white text-gray-700 border-gray-300']"
+        @click="props.selectCategory(cat.id)"
+        :class="[
+          'px-4 py-2 rounded border flex items-center gap-2',
+          props.formData.categoryId === cat.id
+            ? 'bg-indigo-400 text-white border-indigo-400'
+            : 'bg-white text-gray-700 border-gray-300',
+        ]"
       >
         <span>{{ cat.icon }}</span> {{ cat.name }}
       </button>

@@ -4,8 +4,8 @@ import OButton from "@/components/base/button.vue";
 defineOptions({ name: "PreviewStep" });
 
 const props = defineProps<{
-    //TODO: fix type 
   formData: any;
+  selectedCategoryName: string;
   nextStep: () => void;
   prevStep: () => void;
 }>();
@@ -21,7 +21,7 @@ const props = defineProps<{
       <p><strong>تاریخ:</strong> {{ props.formData.startDate }} - {{ props.formData.endDate }}</p>
       <p><strong>محل:</strong> {{ props.formData.address }}</p>
       <p><strong>ظرفیت:</strong> {{ props.formData.capacity }}</p>
-      <p><strong>دسته‌ها:</strong> {{ props.formData.categories.join(", ") }}</p>
+      <p><strong>دسته:</strong> {{ props.selectedCategoryName }}</p>
       <p><strong>وسایل:</strong> {{ props.formData.tools.join(", ") }}</p>
       <p><strong>قوانین:</strong> {{ props.formData.rules.join(", ") }}</p>
     </div>

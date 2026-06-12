@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useMutation, useQueryClient } from "@tanstack/vue-query";
+import { reactive, ref, computed } from "vue";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query";
 import { eventApi } from "@/infrastructure/http/event.api";
+import { httpClient } from "@/infrastructure/http/httpClient";
 import { useRouter } from "vue-router";
 import { useRequireOrganizer } from "@/composables/auth/useRequireOrganizer";
 
@@ -32,7 +33,7 @@ const formData = reactive({
   city: "تهران",
   address: "",
   capacity: 0,
-  categories: [] as string[],
+  categoryId: null as number | null,
   images: [] as (File | null)[],
   sessions: [] as { time: string; title: string; description?: string }[],
   tools: [] as string[],
@@ -42,14 +43,34 @@ const formData = reactive({
 const currentStep = ref(0);
 const totalSteps = 9;
 
-const categories = [
-  { name: "هنر و خلاقیت", icon: "🎨" },
-  { name: "غذا و آشپزی", icon: "🍳" },
-  { name: "سلامت و حرکت", icon: "🏃" },
-  { name: "فرهنگ و گالری", icon: "🖼" },
-  { name: "جشن‌ها و مناسبت‌ها", icon: "🎉" },
-  { name: "سرگرمی و بازی", icon: "🎲" },
-];
+const CATEGORY_EMOJI: Record<string, string> = {
+  art: "🎨",
+  food: "🍳",
+  health: "🏃",
+  culture: "🖼",
+  celebration: "🎉",
+  nature: "🌿",
+};
+
+const { data: apiCategories } = useQuery({
+  queryKey: ["categories"],
+  queryFn: () =>
+    httpClient
+      .get<{ id: number; slug: string; name: string }[]>("/categories")
+      .then((r) => r.data),
+});
+
+const categories = computed(() =>
+  (apiCategories.value ?? []).map((c) => ({
+    id: c.id,
+    name: c.name,
+    icon: CATEGORY_EMOJI[c.slug] ?? "✦",
+  })),
+);
+
+const selectCategory = (categoryId: number) => {
+  formData.categoryId = formData.categoryId === categoryId ? null : categoryId;
+};
 
 const toolsList = ["ابزار نقاشی", "وسایل آشپزی", "لباس راحت", "کفش مناسب", "هیچ چیز لازم نیست"];
 const rulesList = ["رفتار دوستانه و احترام", "کنسلی تا ۲۴ ساعت قبل", "محدودیت سنی (اختیاری)"];
@@ -58,6 +79,10 @@ const toggleArray = (arr: string[], value: string) => {
   if (arr.includes(value)) arr.splice(arr.indexOf(value), 1);
   else arr.push(value);
 };
+
+const selectedCategoryName = computed(
+  () => categories.value.find((c) => c.id === formData.categoryId)?.name ?? "—",
+);
 
 const { mutate, isPending } = useMutation({
   mutationFn: () =>
@@ -70,12 +95,14 @@ const { mutate, isPending } = useMutation({
         city: formData.city,
         address: formData.address,
         capacity: formData.capacity,
+        categoryId: formData.categoryId ?? undefined,
       },
       formData.images.filter((f): f is File => f !== null),
     ),
   onSuccess: () => {
     queryClient.invalidateQueries({ queryKey: ["event-listing"] });
-    router.push("/events");
+    queryClient.invalidateQueries({ queryKey: ["events", "mine"] });
+    router.push("/events/mine");
   },
 });
 
@@ -95,7 +122,7 @@ const wizardSteps = computed<WizardStep<number>[]>(() => [
   {
     key: 1,
     component: Categories,
-    props: { formData, categories, toggleArray, nextStep, prevStep },
+    props: { formData, categories, selectCategory, nextStep, prevStep },
   },
   { key: 2, component: GeneralInfo, props: { formData, nextStep, prevStep } },
   {
@@ -106,7 +133,7 @@ const wizardSteps = computed<WizardStep<number>[]>(() => [
   { key: 4, component: Tools, props: { formData, toolsList, nextStep, prevStep } },
   { key: 5, component: Images, props: { formData, nextStep, prevStep } },
   { key: 6, component: Rules, props: { formData, rulesList, nextStep, prevStep } },
-  { key: 7, component: Preview, props: { formData, nextStep, prevStep } },
+  { key: 7, component: Preview, props: { formData, selectedCategoryName, nextStep, prevStep } },
   { key: 8, component: Final, props: { formData, isPending, mutate } },
 ]);
 </script>

@@ -46,10 +46,17 @@ const styles = twMerge(
         <nav class="hidden sm:flex gap-5 text-sm">
           <router-link
             v-if="hasOrganizerProfile"
-            to="/events/create"
+            to="/events/mine"
             class="text-[var(--color-muted)] hover:text-violet-600 font-medium transition-colors"
           >
             ایونت‌های من
+          </router-link>
+          <router-link
+            v-if="hasOrganizerProfile"
+            to="/events/create"
+            class="text-[var(--color-muted)] hover:text-violet-600 font-medium transition-colors"
+          >
+            ایونت بذار
           </router-link>
           <router-link
             v-if="hasOrganizerProfile"
