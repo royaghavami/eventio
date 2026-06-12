@@ -19,7 +19,7 @@ defineOptions({ name: "Footer" });
           <p class="font-bold text-xl text-gradient inline-block">پیش پیش</p>
         </div>
         <p class="text-sm text-[var(--color-muted)] mt-2 max-w-sm leading-relaxed">
-          پیش پیش جاییه که آدم‌ها، برندها در ایونت‌ها جمع می‌شن — و لحظه‌ها رو با هم می‌سازن.
+          پیش پیش جاییه که آدم‌ها و برندها در ایونت‌ها جمع می‌شن — و لحظه‌ها رو با هم می‌سازن.
         </p>
       </div>
       <div class="flex gap-8 text-sm">

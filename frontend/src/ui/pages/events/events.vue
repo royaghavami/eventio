@@ -90,11 +90,8 @@ const scrollToEvents = () => {
     <div class="flex items-end justify-between gap-4 mb-8">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-ink)]">
-          چیزی که دنبالش نیستی رو پیدا کن
+          دسته‌بندی
         </h2>
-        <p class="text-[var(--color-muted)] mt-1 text-sm md:text-base">
-          اجازه بده غافلگیرت کنیم — این اطراف چه خبر است؟
-        </p>
       </div>
     </div>
 
@@ -117,9 +114,6 @@ const scrollToEvents = () => {
 
   <!-- Events grid -->
   <section id="events-grid" class="max-w-6xl mx-auto px-6 pb-24">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">
-      ببین بقیه کجا جمع شدن
-    </h2>
     <p class="text-center text-[var(--color-muted)] mb-10 text-sm">
       {{ events.length ? `${events.length} ایونت منتظرته` : 'ایونت‌ها دارن شکل می‌گیرن' }}
     </p>
