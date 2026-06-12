@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="Pish Pish symbol white">
+  <path stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" d="M 50 13 C 50 30, 48 40, 50 50"/>
+  <path stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" d="M 85 34 C 72 38, 62 44, 50 50"/>
+  <path stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" d="M 73 82 C 64 68, 58 58, 50 50"/>
+  <path stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" d="M 27 82 C 36 68, 42 58, 50 50"/>
+  <path stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" d="M 15 34 C 28 38, 38 44, 50 50"/>
+  <circle fill="#FFFFFF" cx="50" cy="13" r="7"/>
+  <circle fill="#FFFFFF" cx="85" cy="34" r="7"/>
+  <circle fill="#FFFFFF" cx="73" cy="82" r="7"/>
+  <circle fill="#FFFFFF" cx="27" cy="82" r="7"/>
+  <circle fill="#FFFFFF" cx="15" cy="34" r="7"/>
+  <circle stroke="#6B21FF" stroke-width="1.75" fill="none" opacity="0.55" cx="50" cy="50" r="14"/>
+  <circle fill="#6B21FF" cx="50" cy="50" r="8.5"/>
+</svg>

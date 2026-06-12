@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 100" fill="none" role="img" aria-label="Pish Pish horizontal lockup">
-  <!-- Symbol -->
-  <g transform="translate(0, 0)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" fill="none" role="img" aria-label="Pish Pish vertical lockup">
+  <!-- Symbol centered -->
+  <g transform="translate(190, 0)">
     <path stroke="#0D0D0D" stroke-width="5" stroke-linecap="round" fill="none" d="M 50 13 C 50 30, 48 40, 50 50"/>
     <path stroke="#0D0D0D" stroke-width="5" stroke-linecap="round" fill="none" d="M 85 34 C 72 38, 62 44, 50 50"/>
     <path stroke="#0D0D0D" stroke-width="5" stroke-linecap="round" fill="none" d="M 73 82 C 64 68, 58 58, 50 50"/>
@@ -15,8 +15,8 @@
     <circle fill="#6B21FF" cx="50" cy="50" r="8.5"/>
   </g>
 
-  <!-- Wordmark -->
-  <g transform="translate(116, 10)">
+  <!-- Wordmark centered below -->
+  <g transform="translate(0, 130)">
     <g fill="#0D0D0D">
       <path d="M 4 64 V 12 H 36 C 52 12 62 22 62 36 C 62 50 52 60 36 60 H 18 V 64 Z M 18 26 V 46 H 34 C 42 46 48 42 48 36 C 48 30 42 26 34 26 Z"/>
       <rect x="72" y="34" width="11" height="30" rx="5.5"/>

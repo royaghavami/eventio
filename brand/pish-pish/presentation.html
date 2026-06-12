@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pish Pish — Brand Identity</title>
+  <title>Pish Pish — Brand Identity System</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <style>
     :root {
       --purple: #6B21FF;
@@ -32,162 +33,245 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 80px 48px;
-      position: relative;
+      padding: 96px 48px;
     }
 
-    .page--hero {
-      background: var(--white);
-      padding: 120px 48px;
-    }
-
-    .page--dark {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .page--purple {
-      background: var(--purple);
-      color: var(--white);
-    }
-
-    .page--gray {
-      background: var(--gray-100);
-    }
+    .page--hero { padding: 140px 48px; }
+    .page--dark { background: var(--black); color: var(--white); }
+    .page--purple { background: var(--purple); color: var(--white); }
+    .page--gray { background: var(--gray-100); }
 
     .label {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gray-400);
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .page--dark .label,
-    .page--purple .label {
-      color: rgba(255,255,255,0.45);
-    }
+    .page--purple .label { color: rgba(255,255,255,0.45); }
 
     .hero-logo {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 48px;
+      gap: 52px;
     }
 
-    .hero-symbol {
-      width: 160px;
-      height: 160px;
-    }
-
-    .hero-wordmark {
-      width: 320px;
-      height: auto;
-    }
+    .hero-symbol { width: 180px; height: 180px; }
+    .hero-wordmark { width: 360px; height: auto; }
 
     .hero-tagline {
-      font-size: 15px;
-      font-weight: 400;
+      font-size: 16px;
       color: var(--gray-600);
-      letter-spacing: 0.02em;
-      margin-top: 8px;
+      letter-spacing: 0.01em;
     }
 
     .section-title {
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 64px;
+      margin-bottom: 56px;
       text-align: center;
     }
 
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      max-width: 960px;
+      gap: 96px;
+      max-width: 1040px;
       width: 100%;
       align-items: center;
     }
 
     .concept-text h2 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 28px;
     }
 
     .concept-text p {
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--gray-600);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    .concept-symbol {
-      width: 280px;
-      height: 280px;
-      margin: 0 auto;
-      display: block;
-    }
+    .concept-symbol { width: 300px; height: 300px; display: block; margin: 0 auto; }
 
-    .annotations {
+    .pillars {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      max-width: 900px;
+      gap: 48px;
+      max-width: 960px;
       width: 100%;
-      margin-top: 80px;
+      margin-top: 88px;
     }
 
-    .annotation {
-      text-align: center;
-    }
+    .pillar { text-align: center; }
 
-    .annotation-num {
-      font-size: 48px;
+    .pillar-icon {
+      font-size: 40px;
       font-weight: 700;
       color: var(--purple);
+      margin-bottom: 14px;
       line-height: 1;
-      margin-bottom: 12px;
     }
 
-    .annotation-label {
-      font-size: 13px;
+    .pillar-label {
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .annotation-desc {
+    .pillar-desc {
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--gray-600);
     }
 
-    .mockup-row {
+    .personality {
       display: flex;
-      gap: 48px;
-      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 640px;
+    }
+
+    .personality-tag {
+      padding: 10px 20px;
+      border: 1px solid var(--gray-200);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .page--dark .personality-tag {
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .lockup-row {
+      display: flex;
+      gap: 80px;
+      align-items: center;
       justify-content: center;
       flex-wrap: wrap;
     }
 
+    .lockup-item { text-align: center; }
+
+    .lockup-item img { display: block; margin: 0 auto 20px; }
+
+    .lockup-caption {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .color-palette {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .swatch { width: 150px; text-align: center; }
+
+    .swatch-color {
+      width: 150px;
+      height: 150px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+    }
+
+    .swatch-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+
+    .swatch-hex {
+      font-size: 12px;
+      color: var(--gray-400);
+      font-family: "SF Mono", Monaco, monospace;
+    }
+
+    .swatch-role {
+      font-size: 11px;
+      color: var(--gray-400);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .applications {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      max-width: 1040px;
+      width: 100%;
+    }
+
+    .app-item {
+      aspect-ratio: 1;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .app-item img { width: 52%; height: 52%; object-fit: contain; }
+    .app-item--white { background: var(--white); border: 1px solid var(--gray-200); }
+    .app-item--black { background: var(--black); }
+    .app-item--purple { background: var(--purple); }
+    .app-item--gray { background: var(--gray-100); }
+    .app-icon-full { width: 78% !important; height: 78% !important; border-radius: 22%; }
+
+    .type-specs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      max-width: 800px;
+      width: 100%;
+      margin-top: 56px;
+    }
+
+    .type-spec-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+
+    .type-spec-value { font-size: 14px; font-weight: 500; }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
     .phone {
-      width: 260px;
+      width: 240px;
+      margin: 0 auto;
       background: var(--black);
-      border-radius: 40px;
-      padding: 14px;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow: 0 48px 96px rgba(0,0,0,0.16);
     }
 
     .phone-screen {
       background: var(--white);
-      border-radius: 28px;
+      border-radius: 26px;
       overflow: hidden;
       aspect-ratio: 9/19.5;
       display: flex;
@@ -195,19 +279,18 @@
     }
 
     .phone-status {
-      height: 44px;
-      background: var(--white);
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 8px;
+      padding-top: 6px;
     }
 
     .phone-notch {
-      width: 100px;
-      height: 28px;
+      width: 90px;
+      height: 24px;
       background: var(--black);
-      border-radius: 20px;
+      border-radius: 16px;
     }
 
     .phone-content {
@@ -216,322 +299,343 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 24px;
+      gap: 16px;
+      padding: 20px;
     }
 
-    .phone-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
-      overflow: hidden;
-    }
+    .phone-icon { width: 68px; height: 68px; border-radius: 15px; }
+    .phone-app-name { font-size: 17px; font-weight: 600; }
+    .phone-sub { font-size: 11px; color: var(--gray-400); }
 
-    .phone-app-name {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .phone-sub {
-      font-size: 12px;
-      color: var(--gray-400);
-    }
-
-    .card-mockup {
-      width: 340px;
-      background: var(--white);
-      border-radius: 16px;
-      padding: 48px 40px;
+    .signage {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--black);
+      border-radius: 12px;
+      padding: 64px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.2);
+    }
+
+    .signage-symbol { width: 72px; height: 72px; }
+    .signage-wordmark { width: 220px; }
+
+    .tote {
+      width: 280px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 48px 32px 40px;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.06);
+    }
+
+    .tote-handle {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 28px;
+      border: 3px solid var(--gray-200);
+      border-bottom: none;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .tote-logo { width: 64px; height: 64px; margin: 24px auto 0; display: block; }
+
+    .social-card {
+      width: 280px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
       box-shadow: 0 24px 64px rgba(0,0,0,0.08);
     }
 
-    .card-mockup--dark {
-      background: var(--black);
-    }
-
-    .card-symbol {
-      width: 80px;
-      height: 80px;
-    }
-
-    .card-wordmark {
-      width: 200px;
-    }
-
-    .color-palette {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .swatch {
-      width: 140px;
-      text-align: center;
-    }
-
-    .swatch-color {
-      width: 140px;
-      height: 140px;
-      border-radius: 12px;
-      margin-bottom: 16px;
-    }
-
-    .swatch-name {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .swatch-hex {
-      font-size: 12px;
-      color: var(--gray-400);
-      font-family: "SF Mono", Monaco, monospace;
-    }
-
-    .applications {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      max-width: 1000px;
-      width: 100%;
-    }
-
-    .app-item {
-      aspect-ratio: 1;
-      border-radius: 20px;
+    .social-header {
+      height: 100px;
+      background: var(--purple);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
-    .app-item svg, .app-item img {
-      width: 55%;
-      height: 55%;
+    .social-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 4px solid var(--white);
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
 
-    .app-item--white { background: var(--white); border: 1px solid var(--gray-200); }
-    .app-item--black { background: var(--black); }
-    .app-item--purple { background: var(--purple); }
-    .app-item--gray { background: var(--gray-100); }
+    .social-avatar img { width: 44px; height: 44px; }
 
-    .app-icon-full {
-      width: 80% !important;
-      height: 80% !important;
-      border-radius: 22%;
+    .social-body {
+      padding: 48px 24px 28px;
+      text-align: center;
     }
 
-    .typography-sample {
-      max-width: 800px;
-      width: 100%;
-    }
+    .social-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .social-handle { font-size: 12px; color: var(--gray-400); }
 
-    .type-hero {
-      width: 100%;
-      margin-bottom: 48px;
-    }
-
-    .type-specs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .type-spec-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-bottom: 8px;
-    }
-
-    .type-spec-value {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .clearspace-demo {
+    .clearspace-wrap {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       margin: 0 auto;
     }
 
     .clearspace-box {
       position: absolute;
-      border: 1px dashed var(--purple);
-      opacity: 0.5;
-      inset: -40px;
+      border: 1px dashed rgba(255,255,255,0.45);
+      inset: -44px;
     }
 
-    .clearspace-label {
+    .clearspace-unit {
       position: absolute;
       font-size: 10px;
-      color: var(--purple);
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .dos-donts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .dos-donts h3 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .dos-donts ul { list-style: none; }
+
+    .dos-donts li {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--gray-600);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .dos-donts--do h3 { color: var(--purple); }
+    .dos-donts--dont h3 { color: #E53E3E; }
+
+    .size-row {
+      display: flex;
+      gap: 48px;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .size-item { text-align: center; }
+
+    .size-item img { display: block; margin: 0 auto 12px; }
+
+    .size-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
     }
 
     .footer-meta {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--gray-400);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-top: 48px;
+      margin-top: 56px;
     }
 
-    .page--dark .footer-meta { color: rgba(255,255,255,0.35); }
+    .page--dark .footer-meta,
+    .page--purple .footer-meta { color: rgba(255,255,255,0.35); }
 
-    @media (max-width: 768px) {
-      .concept-grid { grid-template-columns: 1fr; gap: 48px; }
-      .annotations { grid-template-columns: 1fr; }
-      .applications { grid-template-columns: repeat(2, 1fr); }
-      .type-specs { grid-template-columns: repeat(2, 1fr); }
-      .page { padding: 64px 24px; }
+    @media (max-width: 900px) {
+      .concept-grid, .mockup-grid, .dos-donts { grid-template-columns: 1fr; }
+      .pillars, .applications, .type-specs { grid-template-columns: 1fr 1fr; }
+      .page { padding: 72px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 01 — Hero -->
+  <!-- Cover -->
   <section class="page page--hero">
     <div class="hero-logo">
       <img class="hero-symbol" src="logo-symbol.svg" alt="Pish Pish symbol" />
       <img class="hero-wordmark" src="logo-wordmark.svg" alt="Pish Pish" />
       <p class="hero-tagline">Where experiences pull people together</p>
     </div>
-    <p class="footer-meta" style="margin-top:80px">Brand Identity System · 2026</p>
+    <p class="footer-meta" style="margin-top:96px">Brand Identity System · 2026</p>
   </section>
 
-  <!-- 02 — Concept -->
+  <!-- Brand Story -->
   <section class="page page--gray">
-    <p class="label">01 — Concept</p>
+    <p class="label">01 — Brand Story</p>
     <div class="concept-grid">
       <div class="concept-text">
         <h2>The Pull</h2>
         <p>
-          The mark abstracts the instinct to call something closer — the doubled,
-          inward-scooping gesture of invitation. Not a hand, not an animal. Pure motion.
+          Pish Pish connects people with creative events, pop-up markets, workshops,
+          performances, and brand collaborations. The brand is built on a single instinct:
+          the magnetic pull of something worth showing up for.
         </p>
         <p>
-          Four outer nodes represent people at the edge of discovery. Curved trajectories
+          The mark abstracts the beckoning gesture — the doubled, inward-scooping motion
+          of calling something closer. Not a hand. Not an animal. Pure kinetic geometry.
+        </p>
+        <p>
+          Five outer nodes represent individuals at the edge of discovery. Curved trajectories
           sweep toward a central focal point — the shared experience that creates gravity,
           curiosity, and community.
         </p>
-        <p>
-          Negative space between the arcs forms a subtle funnel: attraction made geometry.
-        </p>
       </div>
-      <img class="concept-symbol" src="logo-symbol.svg" alt="Symbol anatomy" />
+      <img class="concept-symbol" src="logo-symbol-construction.svg" alt="Construction grid" />
     </div>
 
-    <div class="annotations">
-      <div class="annotation">
-        <div class="annotation-num">4</div>
-        <div class="annotation-label">Outer Nodes</div>
-        <div class="annotation-desc">Individuals at the periphery — drawn by social energy and cultural curiosity</div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">5</div>
+        <div class="pillar-label">Outer Nodes</div>
+        <div class="pillar-desc">People at the periphery, drawn by social energy and cultural curiosity</div>
       </div>
-      <div class="annotation">
-        <div class="annotation-num">↩</div>
-        <div class="annotation-label">Beckoning Arcs</div>
-        <div class="annotation-desc">Inward-scoop curves echo the "pish pish" call — invitation without illustration</div>
+      <div class="pillar">
+        <div class="pillar-icon">↩</div>
+        <div class="pillar-label">Beckoning Arcs</div>
+        <div class="pillar-desc">Inward-scoop curves echo the "pish pish" call — invitation without illustration</div>
       </div>
-      <div class="annotation">
-        <div class="annotation-num">●</div>
-        <div class="annotation-label">Focal Point</div>
-        <div class="annotation-desc">The experience — workshops, pop-ups, performances — where gathering happens</div>
+      <div class="pillar">
+        <div class="pillar-icon">●</div>
+        <div class="pillar-label">Focal Point</div>
+        <div class="pillar-desc">The experience itself — where workshops, pop-ups, and performances create gathering</div>
       </div>
     </div>
   </section>
 
-  <!-- 03 — Symbol on dark -->
+  <!-- Personality -->
+  <section class="page">
+    <p class="label">02 — Brand Personality</p>
+    <p class="section-title">Playful · Social · Premium</p>
+    <div class="personality">
+      <span class="personality-tag">Playful</span>
+      <span class="personality-tag">Social</span>
+      <span class="personality-tag">Creative</span>
+      <span class="personality-tag">Urban</span>
+      <span class="personality-tag">Trendy</span>
+      <span class="personality-tag">Premium</span>
+      <span class="personality-tag">Culturally Relevant</span>
+    </div>
+  </section>
+
+  <!-- Symbol -->
   <section class="page page--dark">
-    <p class="label">02 — Symbol</p>
-    <img class="concept-symbol" src="logo-symbol.svg" alt="Symbol" style="filter: invert(1)" />
-    <p class="footer-meta">Reversed for dark surfaces</p>
+    <p class="label">03 — Symbol</p>
+    <img class="concept-symbol" src="logo-symbol-white.svg" alt="Symbol reversed" />
+    <p class="footer-meta">Primary mark · Light and dark surface variants</p>
   </section>
 
-  <!-- 04 — Wordmark -->
+  <!-- Wordmark -->
   <section class="page">
-    <p class="label">03 — Wordmark</p>
-    <div class="typography-sample">
-      <img class="type-hero" src="logo-wordmark.svg" alt="Pish Pish wordmark" />
-      <div class="type-specs">
-        <div>
-          <div class="type-spec-label">Construction</div>
-          <div class="type-spec-value">Geometric rounded sans</div>
-        </div>
-        <div>
-          <div class="type-spec-label">Character</div>
-          <div class="type-spec-value">Friendly · Sophisticated</div>
-        </div>
-        <div>
-          <div class="type-spec-label">Detail</div>
-          <div class="type-spec-value">Purple tittles on "i"</div>
-        </div>
-        <div>
-          <div class="type-spec-label">Rhythm</div>
-          <div class="type-spec-value">Doubled name · Playful cadence</div>
-        </div>
+    <p class="label">04 — Wordmark</p>
+    <img src="logo-wordmark.svg" alt="Wordmark" style="width:min(480px,90vw); height:auto; margin-bottom:56px;" />
+    <div class="type-specs">
+      <div>
+        <div class="type-spec-label">Construction</div>
+        <div class="type-spec-value">Custom geometric rounded sans</div>
+      </div>
+      <div>
+        <div class="type-spec-label">Character</div>
+        <div class="type-spec-value">Friendly · Sophisticated</div>
+      </div>
+      <div>
+        <div class="type-spec-label">Signature</div>
+        <div class="type-spec-value">Purple tittles on "i"</div>
+      </div>
+      <div>
+        <div class="type-spec-label">Cadence</div>
+        <div class="type-spec-value">Doubled name · 32px gap</div>
       </div>
     </div>
   </section>
 
-  <!-- 05 — Lockup -->
+  <!-- Lockups -->
   <section class="page page--gray">
-    <p class="label">04 — Lockup</p>
-    <img src="logo-lockup.svg" alt="Horizontal lockup" style="width:min(480px,90vw); height:auto;" />
-    <p class="footer-meta" style="margin-top:48px">Primary horizontal lockup</p>
+    <p class="label">05 — Lockups</p>
+    <div class="lockup-row">
+      <div class="lockup-item">
+        <img src="logo-lockup.svg" alt="Horizontal lockup" style="width:min(500px,85vw); height:auto;" />
+        <p class="lockup-caption">Horizontal — primary</p>
+      </div>
+      <div class="lockup-item">
+        <img src="logo-lockup-vertical.svg" alt="Vertical lockup" style="width:min(280px,60vw); height:auto;" />
+        <p class="lockup-caption">Vertical — social &amp; square formats</p>
+      </div>
+    </div>
   </section>
 
-  <!-- 06 — Color -->
+  <!-- Color -->
   <section class="page">
-    <p class="label">05 — Color</p>
+    <p class="label">06 — Color System</p>
     <p class="section-title">Electric Purple &amp; Black</p>
     <div class="color-palette">
       <div class="swatch">
         <div class="swatch-color" style="background:#6B21FF"></div>
         <div class="swatch-name">Electric Purple</div>
         <div class="swatch-hex">#6B21FF</div>
+        <div class="swatch-role">Focal point · Accent · CTAs</div>
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:#0D0D0D"></div>
         <div class="swatch-name">Ink Black</div>
         <div class="swatch-hex">#0D0D0D</div>
+        <div class="swatch-role">Symbol · Wordmark · UI text</div>
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:#FFFFFF; border:1px solid #E8E8EA"></div>
         <div class="swatch-name">Pure White</div>
         <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-role">Primary background</div>
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:#EDE5FF"></div>
         <div class="swatch-name">Purple Mist</div>
         <div class="swatch-hex">#EDE5FF</div>
+        <div class="swatch-role">Secondary surfaces · Tints</div>
       </div>
     </div>
   </section>
 
-  <!-- 07 — Applications -->
+  <!-- Applications -->
   <section class="page page--gray">
-    <p class="label">06 — Applications</p>
+    <p class="label">07 — Surface Applications</p>
     <div class="applications">
       <div class="app-item app-item--white">
-        <img src="logo-symbol.svg" alt="Symbol on white" />
+        <img src="logo-symbol.svg" alt="On white" />
       </div>
       <div class="app-item app-item--black">
-        <img src="logo-symbol.svg" alt="Symbol on black" style="filter:invert(1)" />
+        <img src="logo-symbol-white.svg" alt="On black" />
       </div>
       <div class="app-item app-item--purple">
-        <img src="logo-symbol.svg" alt="Symbol on purple" style="filter:invert(1)" />
+        <img src="logo-symbol-white.svg" alt="On purple" />
       </div>
       <div class="app-item app-item--gray">
         <img src="logo-icon.svg" alt="App icon" class="app-icon-full" />
@@ -539,10 +643,33 @@
     </div>
   </section>
 
-  <!-- 08 — Mockups -->
+  <!-- Minimum Size -->
   <section class="page">
-    <p class="label">07 — In Context</p>
-    <div class="mockup-row">
+    <p class="label">08 — Minimum Size</p>
+    <div class="size-row">
+      <div class="size-item">
+        <img src="logo-symbol.svg" alt="32px" width="32" height="32" />
+        <p class="size-label">32px — favicon</p>
+      </div>
+      <div class="size-item">
+        <img src="logo-symbol.svg" alt="48px" width="48" height="48" />
+        <p class="size-label">48px — minimum symbol</p>
+      </div>
+      <div class="size-item">
+        <img src="logo-symbol.svg" alt="96px" width="96" height="96" />
+        <p class="size-label">96px — app toolbar</p>
+      </div>
+      <div class="size-item">
+        <img src="logo-symbol.svg" alt="180px" width="180" height="180" />
+        <p class="size-label">180px — hero</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mockups -->
+  <section class="page page--gray">
+    <p class="label">09 — In Context</p>
+    <div class="mockup-grid">
       <div class="phone">
         <div class="phone-screen">
           <div class="phone-status"><div class="phone-notch"></div></div>
@@ -554,36 +681,79 @@
         </div>
       </div>
 
-      <div class="card-mockup">
-        <img class="card-symbol" src="logo-symbol.svg" alt="Symbol" />
-        <img class="card-wordmark" src="logo-wordmark.svg" alt="Wordmark" />
+      <div class="signage">
+        <img class="signage-symbol" src="logo-symbol-white.svg" alt="Signage symbol" />
+        <img class="signage-wordmark" src="logo-wordmark-white.svg" alt="Signage wordmark" />
       </div>
 
-      <div class="card-mockup card-mockup--dark">
-        <img class="card-symbol" src="logo-symbol.svg" alt="Symbol" style="filter:invert(1)" />
-        <img class="card-wordmark" src="logo-wordmark.svg" alt="Wordmark" style="filter:invert(1)" />
+      <div class="tote">
+        <div class="tote-handle"></div>
+        <img class="tote-logo" src="logo-symbol.svg" alt="Merch" />
+      </div>
+    </div>
+
+    <div style="margin-top:64px">
+      <div class="social-card">
+        <div class="social-header"></div>
+        <div class="social-body">
+          <div class="social-avatar">
+            <img src="logo-symbol.svg" alt="Profile" />
+          </div>
+          <div class="social-name">Pish Pish</div>
+          <div class="social-handle">@pishpish</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 09 — Clearspace -->
+  <!-- Clearspace -->
   <section class="page page--purple">
-    <p class="label">08 — Clearspace</p>
-    <div class="clearspace-demo">
+    <p class="label">10 — Clearspace</p>
+    <div class="clearspace-wrap">
       <div class="clearspace-box"></div>
-      <img src="logo-symbol.svg" alt="Clearspace" style="width:100%;height:100%;filter:invert(1)" />
-      <span class="clearspace-label" style="top:-28px;left:50%;transform:translateX(-50%)">1×</span>
+      <img src="logo-symbol-white.svg" alt="Clearspace" style="width:100%;height:100%;" />
+      <span class="clearspace-unit" style="top:-52px;left:50%;transform:translateX(-50%)">1×</span>
+      <span class="clearspace-unit" style="bottom:-52px;left:50%;transform:translateX(-50%)">1×</span>
+      <span class="clearspace-unit" style="left:-52px;top:50%;transform:translateY(-50%)">1×</span>
+      <span class="clearspace-unit" style="right:-52px;top:50%;transform:translateY(-50%)">1×</span>
     </div>
-    <p class="footer-meta">Minimum clearspace = height of outer node (1× unit)</p>
+    <p class="footer-meta">Minimum clearspace = outer node diameter (7 units = 1×)</p>
   </section>
 
-  <!-- 10 — Closing -->
+  <!-- Do's and Don'ts -->
+  <section class="page">
+    <p class="label">11 — Usage Guidelines</p>
+    <div class="dos-donts">
+      <div class="dos-donts--do">
+        <h3>Do</h3>
+        <ul>
+          <li>Use approved SVG assets at all sizes</li>
+          <li>Maintain minimum clearspace around the mark</li>
+          <li>Use white symbol on dark and purple backgrounds</li>
+          <li>Keep the purple focal point intact</li>
+          <li>Use horizontal lockup for web headers</li>
+        </ul>
+      </div>
+      <div class="dos-donts--dont">
+        <h3>Don't</h3>
+        <ul>
+          <li>Stretch, rotate, or skew the logo</li>
+          <li>Change symbol colors outside the palette</li>
+          <li>Add drop shadows, gradients, or outlines</li>
+          <li>Place on busy or low-contrast backgrounds</li>
+          <li>Combine with ticket, pin, or calendar icons</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
   <section class="page page--hero">
     <div class="hero-logo">
       <img class="hero-symbol" src="logo-symbol.svg" alt="Pish Pish" />
       <img class="hero-wordmark" src="logo-wordmark.svg" alt="Pish Pish" />
     </div>
-    <p class="footer-meta" style="margin-top:64px">Pish Pish · Brand Identity · Confidential</p>
+    <p class="footer-meta" style="margin-top:80px">Pish Pish · Brand Identity · Confidential</p>
   </section>
 
 </body>
