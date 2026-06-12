@@ -30,7 +30,7 @@ const { data: categories } = useQuery({
       v-if="eventsLoading"
       class="flex items-center justify-center min-h-[50vh] text-[var(--color-muted)]"
     >
-      <span class="animate-pulse">در حال بارگذاری ماجراجویی‌ها...</span>
+      <span class="animate-pulse">پیش پیش…</span>
     </div>
     <EventsTemplate
       v-else-if="eventListings"

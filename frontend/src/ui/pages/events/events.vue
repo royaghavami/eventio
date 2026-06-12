@@ -47,7 +47,7 @@ const scrollToEvents = () => {
   <section class="relative min-h-[72vh] md:min-h-[78vh] flex items-end">
     <picture class="absolute inset-0">
       <img
-        alt="ایونتیو"
+        alt="پیش پیش"
         src="/images/hero-landing.jpeg"
         class="size-full object-cover"
         fetchpriority="high"
@@ -59,32 +59,27 @@ const scrollToEvents = () => {
     <div
       class="relative w-full max-w-6xl mx-auto px-6 pb-16 md:pb-24 pt-32 text-white"
     >
-      <p
-        class="inline-flex items-center gap-2 text-sm bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm"
-      >
-        <span class="size-2 rounded-full bg-emerald-400 animate-pulse" />
-        تجربه‌های واقعی، نه برنامه‌های تکراری
-      </p>
       <h1 class="text-4xl md:text-6xl font-bold leading-[1.15] max-w-2xl mb-4">
-        هر هفته یه
+        امروز
         <span class="text-transparent bg-clip-text bg-linear-to-l from-orange-300 via-fuchsia-300 to-violet-300">
-          ماجراجویی
+          کجا
         </span>
-        تازه
+        بریم؟
       </h1>
       <p class="text-lg md:text-xl text-white/80 max-w-lg mb-8 leading-relaxed">
-        ورکشاپ، کلاب، مهمونی، کلاس — کشف کن، رزرو کن، برو تو جمع آدم‌های هم‌فکر.
+        پیش پیش جاییه که آدم‌ها در ایونت‌ها جمع می‌شن و لحظه‌ها رو با هم می‌سازن.
+        کدوم ایونت داره صدات می‌زنه؟
       </p>
       <div class="flex flex-wrap gap-3">
         <OButton variant="gradient" size="lg" @click="scrollToEvents">
-          کشف ایونت‌ها
+          ببین بقیه کجا جمع شدن
         </OButton>
         <OButton
           variant="outline"
           size="lg"
           @click="goToStart"
         >
-          می‌خوام ایونت بذارم
+          ایونتت رو بذار
         </OButton>
       </div>
     </div>
@@ -95,10 +90,10 @@ const scrollToEvents = () => {
     <div class="flex items-end justify-between gap-4 mb-8">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-ink)]">
-          چی حال می‌ده؟
+          چیزی که دنبالش نیستی رو پیدا کن
         </h2>
         <p class="text-[var(--color-muted)] mt-1 text-sm md:text-base">
-          دسته‌بندی‌ها رو بگرد — به‌زودی فیلتر هم میاد
+          اجازه بده غافلگیرت کنیم — این اطراف چه خبر است؟
         </p>
       </div>
     </div>
@@ -123,20 +118,20 @@ const scrollToEvents = () => {
   <!-- Events grid -->
   <section id="events-grid" class="max-w-6xl mx-auto px-6 pb-24">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">
-      ایونت‌های داغ این روزها
+      ببین بقیه کجا جمع شدن
     </h2>
     <p class="text-center text-[var(--color-muted)] mb-10 text-sm">
-      {{ events.length ? `${events.length} تجربه منتظرته` : 'به‌زودی ایونت‌های جدید اضافه می‌شن' }}
+      {{ events.length ? `${events.length} ایونت منتظرته` : 'ایونت‌ها دارن شکل می‌گیرن' }}
     </p>
 
     <div
       v-if="!events.length"
       class="glass rounded-3xl p-12 text-center border border-dashed border-violet-200"
     >
-      <span class="text-5xl">🔍</span>
-      <p class="mt-4 text-[var(--color-muted)]">فعلاً ایونتی نیست — اولین نفر باش!</p>
+      <span class="text-5xl">✨</span>
+      <p class="mt-4 text-[var(--color-muted)]">هنوز ایونتی اینجا نیست — تو اولین پیش پیش رو بذار</p>
       <OButton variant="gradient" class="mt-6" @click="goToStart">
-        اولین ایونت رو بساز
+        ایونت بذار
       </OButton>
     </div>
 

@@ -30,11 +30,11 @@ const {
   stats,
   myReservation,
   canReserve,
-  reserveLabel,
   reserve,
   cancel,
   isReserving,
   isCancelling,
+  reservationStatus,
 } = useReserveSpot(eventId);
 
 const displayStats = computed(
@@ -94,7 +94,10 @@ const categoryName = computed(
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       <section class="lg:col-span-8">
-        <h2 class="font-bold text-xl mb-2">توضیحات ایونت</h2>
+        <p class="text-sm text-violet-600 font-medium mb-4">
+          این ایونت داره شکل می‌گیره
+        </p>
+        <h2 class="font-bold text-xl mb-2">این ایونت چیه؟</h2>
         <p class="text-gray-700 leading-7">
           {{ eventDetail.description }}
         </p>
@@ -156,12 +159,19 @@ const categoryName = computed(
           👥 ظرفیت: {{ eventDetail.capacity }}
         </div>
         <div v-if="displayStats" class="text-sm text-gray-600 space-y-1">
-          <div>{{ displayStats.approvedCount }} نفر ثبت‌نام کرده</div>
+          <div>{{ displayStats.approvedCount }} نفر به جمع پیوستن</div>
           <div v-if="displayStats.remainingSpots > 0">
             {{ displayStats.remainingSpots }} جا باقی مانده
           </div>
-          <div v-else class="text-amber-600">ظرفیت تکمیل — لیست انتظار فعال</div>
+          <div v-else class="text-amber-600">این جمع داره کامل می‌شه</div>
         </div>
+
+        <p
+          v-if="reservationStatus"
+          class="mt-3 text-sm font-medium text-violet-700 bg-violet-50 rounded-lg px-3 py-2"
+        >
+          {{ reservationStatus }}
+        </p>
 
         <OButton
           v-if="canReserve"
@@ -169,7 +179,7 @@ const categoryName = computed(
           :disabled="isReserving"
           @click="onReserve"
         >
-          {{ reserveLabel }}
+          {{ stats?.isFull ? 'به جمع اضافه شو' : 'میام' }}
         </OButton>
         <OButton
           v-else-if="myReservation && myReservation.status !== 'CANCELLED'"
@@ -178,7 +188,7 @@ const categoryName = computed(
           :disabled="isCancelling"
           @click="onCancel"
         >
-          لغو رزرو
+          انصراف
         </OButton>
       </section>
     </div>
@@ -191,14 +201,14 @@ const categoryName = computed(
         <span v-if="displayStats?.remainingSpots">
           {{ displayStats.remainingSpots }} جا مانده
         </span>
-        <span v-else class="text-amber-600">لیست انتظار</span>
+        <span v-else class="text-amber-600">این جمع داره کامل می‌شه</span>
       </div>
       <OButton
         v-if="canReserve"
         :disabled="isReserving"
         @click="onReserve"
       >
-        {{ reserveLabel }}
+        {{ stats?.isFull ? 'به جمع اضافه شو' : 'میام' }}
       </OButton>
       <OButton
         v-else
@@ -206,7 +216,7 @@ const categoryName = computed(
         :disabled="isCancelling"
         @click="onCancel"
       >
-        لغو
+        انصراف
       </OButton>
     </div>
   </div>

@@ -14,7 +14,12 @@ import { buildTypeOrmConfig } from '@/config/database.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, validate: validateEnv }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validate: validateEnv,
+      // .env.local first so local values win over production .env
+      envFilePath: ['.env.local', '.env'],
+    }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: buildTypeOrmConfig,

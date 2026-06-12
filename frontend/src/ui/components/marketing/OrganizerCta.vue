@@ -28,26 +28,26 @@ const { goToStart, hasOrganizerProfile } = useBecomeOrganizer();
         <span
           class="inline-block text-xs font-semibold tracking-wide uppercase bg-white/20 px-3 py-1 rounded-full"
         >
-          برای خلاق‌ها و جمع‌دوست‌ها
+          برای کسانی که جمع می‌آورند
         </span>
         <h2 class="text-3xl md:text-4xl font-bold leading-tight">
-          ایونت خودت رو بساز،
+          ایونتت رو بذار،
           <br class="hidden sm:block" />
-          آدم‌ها رو دور هم جمع کن
+          جمع رو دعوت کن
         </h2>
         <p class="text-white/85 text-base md:text-lg max-w-lg leading-relaxed">
-          ورکشاپ، دویدن، کلاس سفال، مهمونی بوردگیم — هر تجربه‌ای که دوست داری
-          می‌تونی تو ایونتیو لیست کنی و جا رزرو بگیری.
+          پیش پیش جاییه که آدم‌ها در ایونت‌ها جمع می‌شن —
+          ورکشاپ، کلاس، مهمونی، هر چی دوست داری.
         </p>
         <ul class="flex flex-wrap justify-center md:justify-start gap-3 text-sm text-white/90">
           <li class="glass !bg-white/15 !text-white px-3 py-1.5 rounded-full">
-            ✨ رایگان برای شروع
+            ✨ شروع رایگان
           </li>
           <li class="glass !bg-white/15 !text-white px-3 py-1.5 rounded-full">
-            📱 چند دقیقه‌ای
+            📱 چند دقیقه تا انتشار
           </li>
           <li class="glass !bg-white/15 !text-white px-3 py-1.5 rounded-full">
-            👥 لیست انتظار خودکار
+            👥 جمع خودش شکل می‌گیره
           </li>
         </ul>
       </div>
@@ -61,8 +61,8 @@ const { goToStart, hasOrganizerProfile } = useBecomeOrganizer();
         <p class="text-violet-800/80 text-sm mb-5">
           {{
             hasOrganizerProfile
-              ? "ایونت بعدیت رو همین الان بساز"
-              : "با چند کلیک پروفایل بساز و اولین ایونت رو منتشر کن"
+              ? "یه ایونت نزدیکته داره شروع می‌شه — بعدی رو تو بذار"
+              : "پروفایلت رو بساز و اولین ایونتت رو با بقیه به اشتراک بذار"
           }}
         </p>
         <OButton
@@ -71,7 +71,7 @@ const { goToStart, hasOrganizerProfile } = useBecomeOrganizer();
           class="w-full !bg-violet-900 hover:!bg-violet-800"
           @click="goToStart"
         >
-          {{ hasOrganizerProfile ? "ساخت ایونت جدید" : "شروع کن — رایگان" }}
+          {{ hasOrganizerProfile ? "ایونت جدید بذار" : "شروع کن" }}
         </OButton>
       </div>
     </div>

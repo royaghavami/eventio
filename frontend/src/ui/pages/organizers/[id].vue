@@ -28,7 +28,7 @@ const { data: profile, isLoading } = useQuery({
         </div>
         <div class="bg-white rounded-lg p-4 shadow">
           <div class="font-bold text-lg">{{ profile.totalParticipants }}</div>
-          <div class="text-gray-500">شرکت‌کننده</div>
+          <div class="text-gray-500">جاهایی که با هم بودید</div>
         </div>
       </div>
       <div v-if="profile.instagram || profile.telegram" class="mt-6 space-y-1 text-sm">

@@ -13,10 +13,10 @@ const props = defineProps<{
 
 <template>
   <div class="space-y-4 text-center">
-    <h2 class="text-xl font-semibold">انتشار ایونت</h2>
-    <p>تبریک! ایونت شما آماده انتشار است.</p>
+    <h2 class="text-xl font-semibold">منتشر کن</h2>
+    <p>از اینجا به بعد، با هم هستید — ایونتت آماده‌ست.</p>
 
-    <OButton class="w-full"  @click="props.mutate">انتشار ایونت</OButton>
-    <OButton class="w-full mt-2" variant="outline">ایجاد ایونت جدید</OButton>
+    <OButton class="w-full"  @click="props.mutate">منتشر کن</OButton>
+    <OButton class="w-full mt-2" variant="outline">ایونت جدید بذار</OButton>
   </div>
 </template>

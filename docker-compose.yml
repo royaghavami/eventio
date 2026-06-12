@@ -3,11 +3,11 @@ version: "3.8"
 services:
   mysql:
     image: mysql:8.0
-    container_name: market-mysql
-    restart: always
+    container_name: eventio-mysql
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: market
+      MYSQL_DATABASE: eventio
     ports:
       - "3306:3306"
     volumes:

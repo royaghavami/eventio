@@ -61,7 +61,7 @@ meta:
 
 <template>
   <main class="max-w-xl mx-auto py-28 px-4 space-y-4">
-    <h1 class="text-2xl font-bold">ویرایش پروفایل برگزارکننده</h1>
+    <h1 class="text-2xl font-bold">لحظه‌هایی که ساختی</h1>
 
     <div v-if="isLoading">در حال بارگذاری...</div>
 
@@ -82,7 +82,7 @@ meta:
       <OInput id="website" v-model="website" label="وب‌سایت" />
 
       <OButton :disabled="isPending" @click="mutate()">ذخیره</OButton>
-      <p v-if="saved" class="text-green-600 text-sm">ذخیره شد</p>
+      <p v-if="saved" class="text-green-600 text-sm">دیدمت — ذخیره شد</p>
     </template>
   </main>
 </template>

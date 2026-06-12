@@ -23,7 +23,7 @@ const handleClick = () => {
 
 const spotsLabel = computed(() => {
   if (props.remaining === undefined) return null;
-  if (props.remaining <= 0) return "لیست انتظار";
+  if (props.remaining <= 0) return "این جمع داره کامل می‌شه";
   if (props.remaining <= 5) return `${props.remaining} جا مونده`;
   return null;
 });
@@ -84,7 +84,7 @@ const spotsLabel = computed(() => {
       >
         <span>ظرفیت {{ capacity }}</span>
         <span class="text-violet-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-          ببین جزئیات ←
+          نزدیک‌تر نگاه کن ←
         </span>
       </div>
     </div>

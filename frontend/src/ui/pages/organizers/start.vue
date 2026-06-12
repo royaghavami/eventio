@@ -17,8 +17,8 @@ const error = ref("");
 
 const steps = [
   { emoji: "🎯", title: "اسم و شهر", desc: "پروفایل ساده — بدون فرم‌های طولانی" },
-  { emoji: "📸", title: "جزئیات ایونت", desc: "عکس، تاریخ، ظرفیت" },
-  { emoji: "🚀", title: "منتشر کن", desc: "بلیت رایگان — رزرو آنلاین" },
+  { emoji: "📸", title: "جزئیات ایونت", desc: "عکس، زمان، ظرفیت" },
+  { emoji: "🚀", title: "منتشر کن", desc: "جمع خودش شکل می‌گیره" },
 ];
 
 watch(
@@ -54,13 +54,13 @@ const onSubmit = async () => {
       </router-link>
 
       <div class="text-center mb-12">
-        <span class="text-4xl mb-4 block">🎪</span>
+        <span class="text-4xl mb-4 block">✨</span>
         <h1 class="text-3xl md:text-4xl font-bold text-gradient mb-3">
-          وقتشه ایونت بسازی
+          ایونتت رو بذار
         </h1>
         <p class="text-[var(--color-muted)] max-w-md mx-auto leading-relaxed">
-          هزاران نفر دنبال تجربه‌های تازه‌ان — نه یه کافه دیگه. تو می‌تونی
-          همون تجربه‌ای باشی که همه دنبالش می‌گردن.
+          پیش پیش یعنی آدم‌ها با هم ایونت‌ها رو زنده می‌کنن.
+          تو می‌تونی همون ایونتی باشی که همه دنبالش می‌گردن.
         </p>
       </div>
 
@@ -80,9 +80,9 @@ const onSubmit = async () => {
         v-if="!isAuthenticated"
         class="glass max-w-md mx-auto rounded-2xl p-8 text-center border border-violet-100"
       >
-        <p class="mb-4 text-[var(--color-muted)]">اول وارد حسابت شو</p>
+        <p class="mb-4 text-[var(--color-muted)]">اول وارد شو</p>
         <router-link to="/auth/register?role=organizer&redirect=/organizers/start">
-          <OButton variant="gradient" size="lg">ثبت‌نام برگزارکننده</OButton>
+          <OButton variant="gradient" size="lg">به جمع پیش پیش بپیوند</OButton>
         </router-link>
       </div>
 
@@ -110,7 +110,7 @@ const onSubmit = async () => {
           class="w-full mt-6"
           :disabled="isPending.value"
         >
-          بزن بریم — ساخت اولین ایونت
+          بزن بریم — اولین ایونتت
         </OButton>
       </form>
     </div>

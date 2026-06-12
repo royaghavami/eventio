@@ -25,20 +25,30 @@ const styles = twMerge(
 
 <template>
   <header :class="styles">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 md:px-6">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-2 md:px-4">
       <div class="flex items-center gap-6 md:gap-10">
-        <router-link
-          to="/events"
-          class="text-xl font-bold bg-linear-to-l from-violet-600 to-fuchsia-500 bg-clip-text text-transparent"
-        >
-          ایونتیو
+        <router-link to="/events" class="flex items-center gap-2 shrink-0">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center">
+            <img
+              src="/logo-v1.png"
+              alt=""
+              class="h-12 w-12 object-contain scale-[3]"
+              width="48"
+              height="48"
+            />
+          </div>
+          <span
+            class="text-2xl font-bold bg-linear-to-l from-violet-600 to-fuchsia-500 bg-clip-text text-transparent"
+          >
+            پیش پیش
+          </span>
         </router-link>
         <nav class="hidden sm:flex gap-5 text-sm">
           <router-link
             to="/events"
             class="text-[var(--color-muted)] hover:text-violet-600 font-medium transition-colors"
           >
-            کشف ایونت
+            کشف
           </router-link>
           <router-link
             v-if="hasOrganizerProfile"
@@ -72,7 +82,7 @@ const styles = twMerge(
           class="hidden sm:inline-flex"
           @click="goToStart"
         >
-          <span class="hidden md:inline">برگزار کن</span>
+          <span class="hidden md:inline">لحظه بساز</span>
           <span class="md:hidden">+ ایونت</span>
         </OButton>
 

@@ -41,7 +41,17 @@ meta:
       class="w-full max-w-md bg-white rounded-2xl shadow p-8 space-y-4"
       @submit.prevent="onSubmit"
     >
-      <h1 class="text-2xl font-bold text-center">ورود به ایونتیو</h1>
+      <div class="mx-auto flex h-20 w-20 items-center justify-center">
+        <img
+          src="/logo-v1.png"
+          alt=""
+          class="h-20 w-20 object-contain scale-[3.5]"
+          width="80"
+          height="80"
+        />
+      </div>
+      <h1 class="text-2xl font-bold text-center">وارد جمع شو</h1>
+      <p class="text-center text-sm text-gray-500">به پیش پیش خوش اومدی</p>
 
       <OInput id="email" v-model="email" label="ایمیل" type="email" required />
       <OInput
@@ -59,7 +69,7 @@ meta:
       </OButton>
 
       <p class="text-center text-sm text-gray-600">
-        حساب ندارید؟
+        هنوز اینجا نیستی؟
         <router-link to="/auth/register" class="text-indigo-600">ثبت‌نام</router-link>
       </p>
     </form>

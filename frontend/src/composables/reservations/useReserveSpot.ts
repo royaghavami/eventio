@@ -94,11 +94,19 @@ export function useReserveSpot(eventId: Ref<number> | number) {
 
   const reserveLabel = computed(() => {
     if (!canReserve.value) {
-      if (myReservation.value?.status === "WAITLISTED") return "در لیست انتظار";
-      if (myReservation.value?.status === "APPROVED") return "رزرو شده";
+      if (myReservation.value?.status === "WAITLISTED") return "تو هم دعوتی";
+      if (myReservation.value?.status === "APPROVED") return "تو وارد شدی";
       return "در انتظار تأیید";
     }
-    return stats.value?.isFull ? "پیوستن به لیست انتظار" : "رزرو جا";
+    return stats.value?.isFull ? "تو هم دعوتی" : "من هستم";
+  });
+
+  const reservationStatus = computed(() => {
+    const r = myReservation.value;
+    if (!r || r.status === "CANCELLED") return null;
+    if (r.status === "APPROVED") return "از اینجا به بعد، با هم هستید";
+    if (r.status === "WAITLISTED") return "یه چیزی داره شکل می‌گیره…";
+    return "دیدمت تو جمع پیش پیش";
   });
 
   return {
@@ -106,6 +114,7 @@ export function useReserveSpot(eventId: Ref<number> | number) {
     myReservation,
     canReserve,
     reserveLabel,
+    reservationStatus,
     isLoading: computed(
       () => statsQuery.isLoading.value || myReservationQuery.isLoading.value,
     ),

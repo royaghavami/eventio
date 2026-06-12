@@ -48,9 +48,21 @@ meta:
       class="w-full max-w-md bg-white rounded-2xl shadow p-8 space-y-4"
       @submit.prevent="onSubmit"
     >
+      <div class="mx-auto flex h-20 w-20 items-center justify-center">
+        <img
+          src="/logo-v1.png"
+          alt=""
+          class="h-20 w-20 object-contain scale-[3.5]"
+          width="80"
+          height="80"
+        />
+      </div>
       <h1 class="text-2xl font-bold text-center">
-        {{ isOrganizer ? "ثبت‌نام برگزارکننده" : "ثبت‌نام در ایونتیو" }}
+        {{ isOrganizer ? "به جمع پیش پیش بپیوند" : "به پیش پیش بپیوند" }}
       </h1>
+      <p v-if="!isOrganizer" class="text-center text-sm text-gray-500">
+        تو هم بخشی از این لحظه باش
+      </p>
 
       <OInput id="email" v-model="email" label="ایمیل" type="email" required />
       <OInput
@@ -86,7 +98,7 @@ meta:
 
       <p v-if="!isOrganizer" class="text-center text-sm">
         <router-link to="/auth/register?role=organizer" class="text-indigo-600">
-          می‌خواهم ایونت برگزار کنم
+          می‌خوام ایونت بذارم
         </router-link>
       </p>
     </form>
