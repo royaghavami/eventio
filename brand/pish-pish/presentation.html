@@ -69,6 +69,125 @@
       letter-spacing: 0.01em;
     }
 
+    .hero-subtag {
+      width: min(360px, 80vw);
+      margin-top: -24px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .compare-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .compare-card--winner {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 1px var(--purple);
+    }
+
+    .compare-card img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .compare-card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .compare-card p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--gray-600);
+    }
+
+    .compare-verdict {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .evolution {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      width: 100%;
+      margin-top: 64px;
+    }
+
+    .evo-step { text-align: center; }
+
+    .evo-step img {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 14px;
+      display: block;
+    }
+
+    .evo-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .evo-desc {
+      font-size: 11px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .icon-row {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .icon-variant {
+      width: 120px;
+      text-align: center;
+    }
+
+    .icon-variant img {
+      width: 100px;
+      height: 100px;
+      border-radius: 22%;
+      margin-bottom: 10px;
+    }
+
+    .icon-variant span {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
     .section-title {
       font-size: 13px;
       font-weight: 600;
@@ -471,7 +590,7 @@
 
     @media (max-width: 900px) {
       .concept-grid, .mockup-grid, .dos-donts { grid-template-columns: 1fr; }
-      .pillars, .applications, .type-specs { grid-template-columns: 1fr 1fr; }
+      .pillars, .applications, .type-specs, .compare-grid, .evolution { grid-template-columns: 1fr 1fr; }
       .page { padding: 72px 24px; }
     }
   </style>
@@ -483,14 +602,40 @@
     <div class="hero-logo">
       <img class="hero-symbol" src="logo-symbol.svg" alt="Pish Pish symbol" />
       <img class="hero-wordmark" src="logo-wordmark.svg" alt="Pish Pish" />
-      <p class="hero-tagline">Where experiences pull people together</p>
+      <img class="hero-subtag" src="logo-tagline.svg" alt="People. Experiences. Together." />
     </div>
     <p class="footer-meta" style="margin-top:96px">Brand Identity System · 2026</p>
   </section>
 
-  <!-- Brand Story -->
+  <!-- Comparison -->
   <section class="page page--gray">
-    <p class="label">01 — Brand Story</p>
+    <p class="label">01 — Concept Evaluation</p>
+    <p class="section-title">Three Directions Compared</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <img src="references/concept-a-vortex.png" alt="Concept A" style="width:100%;height:auto;border-radius:8px;" />
+        <h3>Concept A — Vortex</h3>
+        <p>Four curved purple segments orbiting a black center. Strong app-icon presence, clear gathering metaphor. Rejected radiating-line options as too busy.</p>
+        <span class="compare-verdict">Adopted — structure</span>
+      </div>
+      <div class="compare-card">
+        <img src="references/concept-b-tension.png" alt="Concept B" style="width:100%;height:auto;border-radius:8px;" />
+        <h3>Concept B — Tension Frame</h3>
+        <p>Asymmetric purple shapes linked by tapered pull lines. Highly trademarkable, communicates magnetic attraction. Mixed geometry adds memorability.</p>
+        <span class="compare-verdict">Adopted — details</span>
+      </div>
+      <div class="compare-card compare-card--winner">
+        <img src="logo-symbol.svg" alt="Optimized hybrid" />
+        <h3>Optimized Hybrid</h3>
+        <p>Merges A's vortex arcs + black focal point with B's tapered pull lines and asymmetric outer anchors. Purple-forward, scalable, distinctive.</p>
+        <span class="compare-verdict">Final mark</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="page">
+    <p class="label">02 — Brand Story</p>
     <div class="concept-grid">
       <div class="concept-text">
         <h2>The Pull</h2>
@@ -500,40 +645,45 @@
           the magnetic pull of something worth showing up for.
         </p>
         <p>
-          The mark abstracts the beckoning gesture — the doubled, inward-scooping motion
-          of calling something closer. Not a hand. Not an animal. Pure kinetic geometry.
+          Four curved purple segments orbit a black center — shared energy, the experience
+          everyone converges on. Tapered pull lines between asymmetric outer anchors
+          communicate attraction and tension without literal illustration.
         </p>
         <p>
-          Five outer nodes represent individuals at the edge of discovery. Curved trajectories
-          sweep toward a central focal point — the shared experience that creates gravity,
-          curiosity, and community.
+          The open-counter wordmark echoes the mark's openness: invitation, curiosity,
+          room for people to gather.
         </p>
       </div>
       <img class="concept-symbol" src="logo-symbol-construction.svg" alt="Construction grid" />
     </div>
 
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-icon">5</div>
-        <div class="pillar-label">Outer Nodes</div>
-        <div class="pillar-desc">People at the periphery, drawn by social energy and cultural curiosity</div>
+    <div class="evolution">
+      <div class="evo-step">
+        <svg viewBox="0 0 80 80" width="80" height="80"><circle cx="20" cy="20" r="5" fill="#6B21FF"/><circle cx="60" cy="20" r="5" fill="#6B21FF"/><circle cx="20" cy="60" r="5" fill="#6B21FF"/><circle cx="60" cy="60" r="5" fill="#6B21FF"/></svg>
+        <div class="evo-label">People</div>
+        <div class="evo-desc">Four points at the edge</div>
       </div>
-      <div class="pillar">
-        <div class="pillar-icon">↩</div>
-        <div class="pillar-label">Beckoning Arcs</div>
-        <div class="pillar-desc">Inward-scoop curves echo the "pish pish" call — invitation without illustration</div>
+      <div class="evo-step">
+        <svg viewBox="0 0 80 80" width="80" height="80"><polygon points="40,12 68,40 40,68 12,40" fill="none" stroke="#6B21FF" stroke-width="2"/><line x1="20" y1="20" x2="40" y2="40" stroke="#0D0D0D" stroke-width="1.5"/><line x1="60" y1="20" x2="40" y2="40" stroke="#0D0D0D" stroke-width="1.5"/><line x1="60" y1="60" x2="40" y2="40" stroke="#0D0D0D" stroke-width="1.5"/><line x1="20" y1="60" x2="40" y2="40" stroke="#0D0D0D" stroke-width="1.5"/></svg>
+        <div class="evo-label">Connection</div>
+        <div class="evo-desc">Pull lines draw inward</div>
       </div>
-      <div class="pillar">
-        <div class="pillar-icon">●</div>
-        <div class="pillar-label">Focal Point</div>
-        <div class="pillar-desc">The experience itself — where workshops, pop-ups, and performances create gathering</div>
+      <div class="evo-step">
+        <svg viewBox="0 0 80 80" width="80" height="80"><circle cx="40" cy="40" r="24" stroke="#6B21FF" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="28 10"/><circle cx="40" cy="40" r="5" fill="#0D0D0D"/></svg>
+        <div class="evo-label">Attraction</div>
+        <div class="evo-desc">Vortex arcs form</div>
+      </div>
+      <div class="evo-step">
+        <img src="logo-symbol.svg" alt="Final" style="width:80px;height:80px;" />
+        <div class="evo-label">Pish Pish</div>
+        <div class="evo-desc">Shared energy</div>
       </div>
     </div>
   </section>
 
   <!-- Personality -->
-  <section class="page">
-    <p class="label">02 — Brand Personality</p>
+  <section class="page page--gray">
+    <p class="label">03 — Brand Personality</p>
     <p class="section-title">Playful · Social · Premium</p>
     <div class="personality">
       <span class="personality-tag">Playful</span>
@@ -548,14 +698,14 @@
 
   <!-- Symbol -->
   <section class="page page--dark">
-    <p class="label">03 — Symbol</p>
-    <img class="concept-symbol" src="logo-symbol-white.svg" alt="Symbol reversed" />
-    <p class="footer-meta">Primary mark · Light and dark surface variants</p>
+    <p class="label">04 — Symbol</p>
+    <img class="concept-symbol" src="logo-symbol-on-dark.svg" alt="Symbol on dark" />
+    <p class="footer-meta">Purple anchors persist on dark · white pull lines · white center</p>
   </section>
 
   <!-- Wordmark -->
   <section class="page">
-    <p class="label">04 — Wordmark</p>
+    <p class="label">05 — Wordmark</p>
     <img src="logo-wordmark.svg" alt="Wordmark" style="width:min(480px,90vw); height:auto; margin-bottom:56px;" />
     <div class="type-specs">
       <div>
@@ -566,20 +716,20 @@
         <div class="type-spec-label">Character</div>
         <div class="type-spec-value">Friendly · Sophisticated</div>
       </div>
-      <div>
-        <div class="type-spec-label">Signature</div>
-        <div class="type-spec-value">Purple tittles on "i"</div>
-      </div>
-      <div>
-        <div class="type-spec-label">Cadence</div>
-        <div class="type-spec-value">Doubled name · 32px gap</div>
-      </div>
+        <div>
+          <div class="type-spec-label">Signature</div>
+          <div class="type-spec-value">Open-counter P</div>
+        </div>
+        <div>
+          <div class="type-spec-label">Cadence</div>
+          <div class="type-spec-value">Doubled name · bold stroke</div>
+        </div>
     </div>
   </section>
 
   <!-- Lockups -->
   <section class="page page--gray">
-    <p class="label">05 — Lockups</p>
+    <p class="label">06 — Lockups</p>
     <div class="lockup-row">
       <div class="lockup-item">
         <img src="logo-lockup.svg" alt="Horizontal lockup" style="width:min(500px,85vw); height:auto;" />
@@ -594,7 +744,7 @@
 
   <!-- Color -->
   <section class="page">
-    <p class="label">06 — Color System</p>
+    <p class="label">07 — Color System</p>
     <p class="section-title">Electric Purple &amp; Black</p>
     <div class="color-palette">
       <div class="swatch">
@@ -626,13 +776,13 @@
 
   <!-- Applications -->
   <section class="page page--gray">
-    <p class="label">07 — Surface Applications</p>
+    <p class="label">08 — Surface Applications</p>
     <div class="applications">
       <div class="app-item app-item--white">
         <img src="logo-symbol.svg" alt="On white" />
       </div>
       <div class="app-item app-item--black">
-        <img src="logo-symbol-white.svg" alt="On black" />
+        <img src="logo-symbol-on-dark.svg" alt="On black" />
       </div>
       <div class="app-item app-item--purple">
         <img src="logo-symbol-white.svg" alt="On purple" />
@@ -641,11 +791,25 @@
         <img src="logo-icon.svg" alt="App icon" class="app-icon-full" />
       </div>
     </div>
+    <div class="icon-row" style="margin-top:56px">
+      <div class="icon-variant">
+        <img src="logo-icon.svg" alt="Light icon" />
+        <span>Light</span>
+      </div>
+      <div class="icon-variant">
+        <img src="logo-icon-purple.svg" alt="Purple icon" />
+        <span>Purple</span>
+      </div>
+      <div class="icon-variant">
+        <img src="logo-icon-dark.svg" alt="Dark icon" />
+        <span>Dark</span>
+      </div>
+    </div>
   </section>
 
   <!-- Minimum Size -->
   <section class="page">
-    <p class="label">08 — Minimum Size</p>
+    <p class="label">09 — Minimum Size</p>
     <div class="size-row">
       <div class="size-item">
         <img src="logo-symbol.svg" alt="32px" width="32" height="32" />
@@ -668,7 +832,7 @@
 
   <!-- Mockups -->
   <section class="page page--gray">
-    <p class="label">09 — In Context</p>
+    <p class="label">10 — In Context</p>
     <div class="mockup-grid">
       <div class="phone">
         <div class="phone-screen">
@@ -682,7 +846,7 @@
       </div>
 
       <div class="signage">
-        <img class="signage-symbol" src="logo-symbol-white.svg" alt="Signage symbol" />
+        <img class="signage-symbol" src="logo-symbol-on-dark.svg" alt="Signage symbol" />
         <img class="signage-wordmark" src="logo-wordmark-white.svg" alt="Signage wordmark" />
       </div>
 
@@ -708,7 +872,7 @@
 
   <!-- Clearspace -->
   <section class="page page--purple">
-    <p class="label">10 — Clearspace</p>
+    <p class="label">11 — Clearspace</p>
     <div class="clearspace-wrap">
       <div class="clearspace-box"></div>
       <img src="logo-symbol-white.svg" alt="Clearspace" style="width:100%;height:100%;" />
@@ -722,7 +886,7 @@
 
   <!-- Do's and Don'ts -->
   <section class="page">
-    <p class="label">11 — Usage Guidelines</p>
+    <p class="label">12 — Usage Guidelines</p>
     <div class="dos-donts">
       <div class="dos-donts--do">
         <h3>Do</h3>

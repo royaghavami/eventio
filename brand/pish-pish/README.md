@@ -1,41 +1,51 @@
 # Pish Pish — Brand Identity System
 
-Premium minimalist logo system for a social experiences platform connecting people with creative events, pop-up markets, workshops, performances, and brand collaborations.
+Premium minimalist logo for a social experiences platform.
 
-## The Mark: "The Pull"
+## Optimized Mark: "The Pull" (Hybrid)
 
-Five outer nodes are drawn inward along curved beckoning arcs toward a central purple focal point — the shared experience.
+Evaluated against two concept directions and merged the strongest elements:
 
-**Hidden reference:** The inward-scooping arcs abstract the doubled "pish pish" beckoning gesture (calling something closer) without depicting any figure, animal, or literal illustration.
+| Source | Adopted | Rejected |
+|--------|---------|----------|
+| **Concept A — Vortex** | 4 curved purple arc segments, black focal point, gathering metaphor | 12-line radiating burst (too busy at small sizes) |
+| **Concept B — Tension Frame** | Tapered pull lines, asymmetric outer anchors (circle · square · circle · arc) | Fully disconnected frame (weaker icon silhouette) |
+| **Previous v1** | 5-node convergence narrative | Black-dominant palette underused purple brand color |
+
+**Final hybrid:** Purple vortex arcs + black center + tapered attraction lines + asymmetric anchors.
+
+## Narrative Progression
+
+1. **People** — four outer anchor points
+2. **Connection** — tapered pull lines draw inward
+3. **Attraction** — curved segments form gathering vortex
+4. **Pish Pish** — shared energy at the center
 
 ## Files
 
 | File | Use |
 |------|-----|
-| `logo-symbol.svg` | Primary symbol (black on transparent) |
-| `logo-symbol-white.svg` | Reversed symbol for dark/purple surfaces |
-| `logo-symbol-construction.svg` | Symbol with geometry grid overlay |
-| `logo-wordmark.svg` | Custom "Pish Pish" wordmark |
+| `logo-symbol.svg` | Primary symbol (light backgrounds) |
+| `logo-symbol-white.svg` | Reversed for purple backgrounds |
+| `logo-symbol-on-dark.svg` | Purple anchors + white lines for dark surfaces |
+| `logo-symbol-construction.svg` | Geometry grid overlay |
+| `logo-wordmark.svg` | Bold open-counter P wordmark |
 | `logo-wordmark-white.svg` | Reversed wordmark |
-| `logo-lockup.svg` | Horizontal symbol + wordmark |
-| `logo-lockup-vertical.svg` | Stacked symbol + wordmark |
-| `logo-icon.svg` | App icon (light background) |
-| `logo-icon-dark.svg` | App icon (dark background) |
-| `favicon.svg` | Simplified 32px favicon |
-| `presentation.html` | Full brand identity case study |
+| `logo-tagline.svg` | "PEOPLE. EXPERIENCES. TOGETHER." |
+| `logo-lockup.svg` | Horizontal lockup |
+| `logo-lockup-vertical.svg` | Stacked lockup with tagline |
+| `logo-icon.svg` | App icon (white) |
+| `logo-icon-purple.svg` | App icon (purple) |
+| `logo-icon-dark.svg` | App icon (black) |
+| `favicon.svg` | 32px simplified mark |
+| `presentation.html` | Full brand case study with concept comparison |
+| `references/` | Source concept exploration images |
 
-## Color System
+## Colors
 
-| Name | Hex | Role |
-|------|-----|------|
-| Electric Purple | `#6B21FF` | Focal point, accent, CTAs, tittles |
-| Ink Black | `#0D0D0D` | Symbol strokes, nodes, wordmark |
-| Pure White | `#FFFFFF` | Primary background |
-| Purple Mist | `#EDE5FF` | Secondary surfaces, tints |
-
-## Clearspace
-
-Minimum clearspace on all sides = outer node diameter (7 units = 1×).
+- **Electric Purple** `#6B21FF` — arcs, anchors, accent
+- **Ink Black** `#0D0D0D` — pull lines, focal point, wordmark
+- **Pure White** `#FFFFFF` — backgrounds, reversed elements
 
 ## View Presentation
 
