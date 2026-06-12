@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pish Pish — Brand Identity</title>
+  <style>
+    :root {
+      --purple: #6B21FF;
+      --purple-light: #EDE5FF;
+      --purple-mid: #9D4EDD;
+      --black: #0D0D0D;
+      --white: #FFFFFF;
+      --gray-100: #F7F7F8;
+      --gray-200: #E8E8EA;
+      --gray-400: #9B9BA4;
+      --gray-600: #5C5C66;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px;
+      position: relative;
+    }
+
+    .page--hero {
+      background: var(--white);
+      padding: 120px 48px;
+    }
+
+    .page--dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .page--purple {
+      background: var(--purple);
+      color: var(--white);
+    }
+
+    .page--gray {
+      background: var(--gray-100);
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 32px;
+    }
+
+    .page--dark .label,
+    .page--purple .label {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .hero-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-symbol {
+      width: 160px;
+      height: 160px;
+    }
+
+    .hero-wordmark {
+      width: 320px;
+      height: auto;
+    }
+
+    .hero-tagline {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gray-600);
+      letter-spacing: 0.02em;
+      margin-top: 8px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 64px;
+      text-align: center;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 960px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .concept-text h2 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .concept-text p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray-600);
+      margin-bottom: 16px;
+    }
+
+    .concept-symbol {
+      width: 280px;
+      height: 280px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .annotations {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 900px;
+      width: 100%;
+      margin-top: 80px;
+    }
+
+    .annotation {
+      text-align: center;
+    }
+
+    .annotation-num {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .annotation-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .annotation-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--gray-600);
+    }
+
+    .mockup-row {
+      display: flex;
+      gap: 48px;
+      align-items: flex-end;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .phone {
+      width: 260px;
+      background: var(--black);
+      border-radius: 40px;
+      padding: 14px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+    }
+
+    .phone-screen {
+      background: var(--white);
+      border-radius: 28px;
+      overflow: hidden;
+      aspect-ratio: 9/19.5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-status {
+      height: 44px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .phone-notch {
+      width: 100px;
+      height: 28px;
+      background: var(--black);
+      border-radius: 20px;
+    }
+
+    .phone-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 24px;
+    }
+
+    .phone-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .phone-app-name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .phone-sub {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    .card-mockup {
+      width: 340px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+    }
+
+    .card-mockup--dark {
+      background: var(--black);
+    }
+
+    .card-symbol {
+      width: 80px;
+      height: 80px;
+    }
+
+    .card-wordmark {
+      width: 200px;
+    }
+
+    .color-palette {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .swatch {
+      width: 140px;
+      text-align: center;
+    }
+
+    .swatch-color {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .swatch-hex {
+      font-size: 12px;
+      color: var(--gray-400);
+      font-family: "SF Mono", Monaco, monospace;
+    }
+
+    .applications {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .app-item {
+      aspect-ratio: 1;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .app-item svg, .app-item img {
+      width: 55%;
+      height: 55%;
+    }
+
+    .app-item--white { background: var(--white); border: 1px solid var(--gray-200); }
+    .app-item--black { background: var(--black); }
+    .app-item--purple { background: var(--purple); }
+    .app-item--gray { background: var(--gray-100); }
+
+    .app-icon-full {
+      width: 80% !important;
+      height: 80% !important;
+      border-radius: 22%;
+    }
+
+    .typography-sample {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .type-hero {
+      width: 100%;
+      margin-bottom: 48px;
+    }
+
+    .type-specs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .type-spec-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+
+    .type-spec-value {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .clearspace-demo {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+
+    .clearspace-box {
+      position: absolute;
+      border: 1px dashed var(--purple);
+      opacity: 0.5;
+      inset: -40px;
+    }
+
+    .clearspace-label {
+      position: absolute;
+      font-size: 10px;
+      color: var(--purple);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-meta {
+      font-size: 12px;
+      color: var(--gray-400);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 48px;
+    }
+
+    .page--dark .footer-meta { color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 768px) {
+      .concept-grid { grid-template-columns: 1fr; gap: 48px; }
+      .annotations { grid-template-columns: 1fr; }
+      .applications { grid-template-columns: repeat(2, 1fr); }
+      .type-specs { grid-template-columns: repeat(2, 1fr); }
+      .page { padding: 64px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 01 — Hero -->
+  <section class="page page--hero">
+    <div class="hero-logo">
+      <img class="hero-symbol" src="logo-symbol.svg" alt="Pish Pish symbol" />
+      <img class="hero-wordmark" src="logo-wordmark.svg" alt="Pish Pish" />
+      <p class="hero-tagline">Where experiences pull people together</p>
+    </div>
+    <p class="footer-meta" style="margin-top:80px">Brand Identity System · 2026</p>
+  </section>
+
+  <!-- 02 — Concept -->
+  <section class="page page--gray">
+    <p class="label">01 — Concept</p>
+    <div class="concept-grid">
+      <div class="concept-text">
+        <h2>The Pull</h2>
+        <p>
+          The mark abstracts the instinct to call something closer — the doubled,
+          inward-scooping gesture of invitation. Not a hand, not an animal. Pure motion.
+        </p>
+        <p>
+          Four outer nodes represent people at the edge of discovery. Curved trajectories
+          sweep toward a central focal point — the shared experience that creates gravity,
+          curiosity, and community.
+        </p>
+        <p>
+          Negative space between the arcs forms a subtle funnel: attraction made geometry.
+        </p>
+      </div>
+      <img class="concept-symbol" src="logo-symbol.svg" alt="Symbol anatomy" />
+    </div>
+
+    <div class="annotations">
+      <div class="annotation">
+        <div class="annotation-num">4</div>
+        <div class="annotation-label">Outer Nodes</div>
+        <div class="annotation-desc">Individuals at the periphery — drawn by social energy and cultural curiosity</div>
+      </div>
+      <div class="annotation">
+        <div class="annotation-num">↩</div>
+        <div class="annotation-label">Beckoning Arcs</div>
+        <div class="annotation-desc">Inward-scoop curves echo the "pish pish" call — invitation without illustration</div>
+      </div>
+      <div class="annotation">
+        <div class="annotation-num">●</div>
+        <div class="annotation-label">Focal Point</div>
+        <div class="annotation-desc">The experience — workshops, pop-ups, performances — where gathering happens</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — Symbol on dark -->
+  <section class="page page--dark">
+    <p class="label">02 — Symbol</p>
+    <img class="concept-symbol" src="logo-symbol.svg" alt="Symbol" style="filter: invert(1)" />
+    <p class="footer-meta">Reversed for dark surfaces</p>
+  </section>
+
+  <!-- 04 — Wordmark -->
+  <section class="page">
+    <p class="label">03 — Wordmark</p>
+    <div class="typography-sample">
+      <img class="type-hero" src="logo-wordmark.svg" alt="Pish Pish wordmark" />
+      <div class="type-specs">
+        <div>
+          <div class="type-spec-label">Construction</div>
+          <div class="type-spec-value">Geometric rounded sans</div>
+        </div>
+        <div>
+          <div class="type-spec-label">Character</div>
+          <div class="type-spec-value">Friendly · Sophisticated</div>
+        </div>
+        <div>
+          <div class="type-spec-label">Detail</div>
+          <div class="type-spec-value">Purple tittles on "i"</div>
+        </div>
+        <div>
+          <div class="type-spec-label">Rhythm</div>
+          <div class="type-spec-value">Doubled name · Playful cadence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — Lockup -->
+  <section class="page page--gray">
+    <p class="label">04 — Lockup</p>
+    <img src="logo-lockup.svg" alt="Horizontal lockup" style="width:min(480px,90vw); height:auto;" />
+    <p class="footer-meta" style="margin-top:48px">Primary horizontal lockup</p>
+  </section>
+
+  <!-- 06 — Color -->
+  <section class="page">
+    <p class="label">05 — Color</p>
+    <p class="section-title">Electric Purple &amp; Black</p>
+    <div class="color-palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6B21FF"></div>
+        <div class="swatch-name">Electric Purple</div>
+        <div class="swatch-hex">#6B21FF</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0D0D0D"></div>
+        <div class="swatch-name">Ink Black</div>
+        <div class="swatch-hex">#0D0D0D</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF; border:1px solid #E8E8EA"></div>
+        <div class="swatch-name">Pure White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EDE5FF"></div>
+        <div class="swatch-name">Purple Mist</div>
+        <div class="swatch-hex">#EDE5FF</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 — Applications -->
+  <section class="page page--gray">
+    <p class="label">06 — Applications</p>
+    <div class="applications">
+      <div class="app-item app-item--white">
+        <img src="logo-symbol.svg" alt="Symbol on white" />
+      </div>
+      <div class="app-item app-item--black">
+        <img src="logo-symbol.svg" alt="Symbol on black" style="filter:invert(1)" />
+      </div>
+      <div class="app-item app-item--purple">
+        <img src="logo-symbol.svg" alt="Symbol on purple" style="filter:invert(1)" />
+      </div>
+      <div class="app-item app-item--gray">
+        <img src="logo-icon.svg" alt="App icon" class="app-icon-full" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 — Mockups -->
+  <section class="page">
+    <p class="label">07 — In Context</p>
+    <div class="mockup-row">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-status"><div class="phone-notch"></div></div>
+          <div class="phone-content">
+            <img class="phone-icon" src="logo-icon.svg" alt="App icon" />
+            <div class="phone-app-name">Pish Pish</div>
+            <div class="phone-sub">Discover experiences near you</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-mockup">
+        <img class="card-symbol" src="logo-symbol.svg" alt="Symbol" />
+        <img class="card-wordmark" src="logo-wordmark.svg" alt="Wordmark" />
+      </div>
+
+      <div class="card-mockup card-mockup--dark">
+        <img class="card-symbol" src="logo-symbol.svg" alt="Symbol" style="filter:invert(1)" />
+        <img class="card-wordmark" src="logo-wordmark.svg" alt="Wordmark" style="filter:invert(1)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 — Clearspace -->
+  <section class="page page--purple">
+    <p class="label">08 — Clearspace</p>
+    <div class="clearspace-demo">
+      <div class="clearspace-box"></div>
+      <img src="logo-symbol.svg" alt="Clearspace" style="width:100%;height:100%;filter:invert(1)" />
+      <span class="clearspace-label" style="top:-28px;left:50%;transform:translateX(-50%)">1×</span>
+    </div>
+    <p class="footer-meta">Minimum clearspace = height of outer node (1× unit)</p>
+  </section>
+
+  <!-- 10 — Closing -->
+  <section class="page page--hero">
+    <div class="hero-logo">
+      <img class="hero-symbol" src="logo-symbol.svg" alt="Pish Pish" />
+      <img class="hero-wordmark" src="logo-wordmark.svg" alt="Pish Pish" />
+    </div>
+    <p class="footer-meta" style="margin-top:64px">Pish Pish · Brand Identity · Confidential</p>
+  </section>
+
+</body>
+</html>

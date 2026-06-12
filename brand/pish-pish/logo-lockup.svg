@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" fill="none" role="img" aria-label="Pish Pish logo lockup">
+  <!-- Horizontal lockup: symbol + wordmark -->
+  <g transform="translate(0, 0)">
+    <g id="symbol" transform="translate(0, 0) scale(1)">
+      <path d="M 18 22 C 18 42, 32 48, 50 50" stroke="#0D0D0D" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <path d="M 82 22 C 82 42, 68 48, 50 50" stroke="#0D0D0D" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <path d="M 22 78 C 36 62, 44 54, 50 50" stroke="#0D0D0D" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <path d="M 78 78 C 64 62, 56 54, 50 50" stroke="#0D0D0D" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <circle cx="18" cy="22" r="6.5" fill="#0D0D0D"/>
+      <circle cx="82" cy="22" r="6.5" fill="#0D0D0D"/>
+      <circle cx="22" cy="78" r="6.5" fill="#0D0D0D"/>
+      <circle cx="78" cy="78" r="6.5" fill="#0D0D0D"/>
+      <circle cx="50" cy="50" r="9" fill="#6B21FF"/>
+      <circle cx="50" cy="50" r="13" stroke="#6B21FF" stroke-width="2" fill="none" opacity="0.35"/>
+    </g>
+  </g>
+
+  <g transform="translate(120, 14)">
+    <g fill="#0D0D0D">
+      <path d="M 8 58 V 14 H 34 C 48 14 56 22 56 34 C 56 46 48 54 34 54 H 22 V 58 Z M 22 26 V 42 H 32 C 38 42 42 38 42 34 C 42 30 38 26 32 26 Z"/>
+      <rect x="66" y="30" width="10" height="28" rx="5"/>
+      <path d="M 98 38 C 98 32 104 28 112 28 C 120 28 126 32 126 38 H 114 C 114 36 112 34 110 34 C 108 34 106 35 106 37 C 106 40 126 39 126 50 C 126 56 120 60 110 60 C 100 60 94 55 94 48 H 106 C 106 51 108 53 110 53 C 113 53 114 51 114 49 C 114 46 94 47 94 38 Z"/>
+      <path d="M 136 14 V 58 H 148 V 42 C 148 34 152 30 158 30 C 164 30 168 34 168 42 V 58 H 180 V 14 H 168 V 28 C 164 22 158 18 150 18 C 140 18 136 26 136 34 Z"/>
+      <path d="M 208 58 V 14 H 234 C 248 14 256 22 256 34 C 256 46 248 54 234 54 H 222 V 58 Z M 222 26 V 42 H 232 C 238 42 242 38 242 34 C 242 30 238 26 232 26 Z"/>
+      <rect x="266" y="30" width="10" height="28" rx="5"/>
+      <path d="M 298 38 C 298 32 304 28 312 28 C 320 28 326 32 326 38 H 314 C 314 36 312 34 310 34 C 308 34 306 35 306 37 C 306 40 326 39 326 50 C 326 56 320 60 310 60 C 300 60 294 55 294 48 H 306 C 306 51 308 53 310 53 C 313 53 314 51 314 49 C 314 46 294 47 294 38 Z"/>
+      <path d="M 336 14 V 58 H 348 V 42 C 348 34 352 30 358 30 C 364 30 368 34 368 42 V 58 H 380 V 14 H 368 V 28 C 364 22 358 18 350 18 C 340 18 336 26 336 34 Z"/>
+    </g>
+    <circle cx="71" cy="18" r="5" fill="#6B21FF"/>
+    <circle cx="271" cy="18" r="5" fill="#6B21FF"/>
+  </g>
+</svg>
