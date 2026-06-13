@@ -122,7 +122,7 @@ const wizardSteps = computed<WizardStep<number>[]>(() => [
   {
     key: 1,
     component: Categories,
-    props: { formData, categories, selectCategory, nextStep, prevStep },
+    props: { formData, categories: categories.value, selectCategory, nextStep, prevStep },
   },
   { key: 2, component: GeneralInfo, props: { formData, nextStep, prevStep } },
   {
@@ -133,8 +133,8 @@ const wizardSteps = computed<WizardStep<number>[]>(() => [
   { key: 4, component: Tools, props: { formData, toolsList, nextStep, prevStep } },
   { key: 5, component: Images, props: { formData, nextStep, prevStep } },
   { key: 6, component: Rules, props: { formData, rulesList, nextStep, prevStep } },
-  { key: 7, component: Preview, props: { formData, selectedCategoryName, nextStep, prevStep } },
-  { key: 8, component: Final, props: { formData, isPending, mutate } },
+  { key: 7, component: Preview, props: { formData, selectedCategoryName: selectedCategoryName.value, nextStep, prevStep } },
+  { key: 8, component: Final, props: { formData, isPending: isPending.value, mutate } },
 ]);
 </script>
 
